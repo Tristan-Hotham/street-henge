@@ -1,0 +1,378 @@
+qid,name,lon,lat,pop,types,r_km,tid
+Q84,London,-0.1275,51.507222,8799728.0,city; financial center; global city; largest city; megacity; metropolis; national capital,22.0,0
+Q2256,Birmingham,-1.9025,52.48,1137100.0,college town; metropolis,12.03,1
+Q4093,Glasgow,-4.25,55.861111,626410.0,big city; city; largest city,8.93,2
+Q18125,Manchester,-2.245278,53.479445,547627.0,city status in the United Kingdom,8.35,3
+Q39121,Leeds,-1.543611,53.7975,536280.0,big city; city; college town,8.26,4
+Q42448,Sheffield,-1.470278,53.380833,518090.0,big city; city,8.12,5
+Q24826,Liverpool,-2.991667,53.407222,513441.0,big city; city,8.09,6
+Q23436,Edinburgh,-3.189167,55.953333,488050.0,big city; college town,7.88,7
+Q23154,Bristol,-2.5975,51.453611,472465.0,big city; city; city of United Kingdom; port city,7.76,8
+Q10690,Cardiff,-3.179167,51.481667,383536.0,big city; city; largest city,6.99,9
+Q83065,Leicester,-1.133055,52.636111,368600.0,big city; city; county town,6.85,10
+Q6225,Coventry,-1.516667,52.416667,362690.0,big city; city,6.8,11
+Q10686,Belfast,-5.93,54.596667,345006.0,big city; city; largest city,6.63,12
+Q1425428,Newcastle upon Tyne,-1.613333,54.977778,300196.0,big city; city,6.18,13
+Q18655,Stockport,-2.149444,53.408333,294773.0,market town; town,6.13,14
+Q41262,Nottingham,-1.149167,52.955,289301.0,big city; city; county town,6.07,15
+Q184579,Bolton,-2.43,53.578333,285372.0,big city; market town; town,6.03,16
+Q188304,Sunderland,-1.381111,54.904445,277417.0,big city; city,5.94,17
+Q1022488,Brighton and Hove,-0.152778,50.827778,277103.0,big city; city,5.94,18
+Q79848,Southampton,-1.404444,50.906667,271173.0,big city; city,5.88,19
+Q43382,Plymouth,-4.142222,50.371389,267918.0,big city; city,5.84,20
+Q204234,Milton Keynes,-0.766667,52.033333,264349.0,big city; city; new town (UK); planned community,5.8,21
+Q128147,Kingston upon Hull,-0.3325,53.744444,260200.0,city,5.76,22
+Q134902,Stoke-on-Trent,-2.183333,53.0,258300.0,big city; city,5.73,23
+Q43475,Derby,-1.476667,52.921667,255394.0,big city; city; county town,5.7,24
+Q126269,Wolverhampton,-2.125278,52.584167,250970.0,city,5.65,25
+Q72259,Portsmouth,-1.087222,50.805833,248440.0,big city; city; port city,5.62,26
+Q23051,Swansea,-3.95,51.616667,246700.0,city,5.6,27
+Q192240,Northampton,-0.9,52.233333,245899.0,county town; market town; new town (UK),5.6,28
+Q54212,Barnsley,-1.478889,53.553611,245199.0,town,5.59,29
+Q200942,Swindon,-1.781111,51.558333,222193.0,big city,5.32,30
+Q203889,Luton,-0.414722,51.878333,213052.0,town,5.21,31
+Q42462,York,-1.083333,53.95,208400.0,big city; city; county town,5.15,32
+Q397343,Solihull,-1.772,52.413,206674.0,big city; town,5.13,33
+Q36405,Aberdeen,-2.1,57.15,200680.0,big city; city; human settlement,5.05,34
+Q130191,Norwich,1.292778,52.628611,195971.0,big city; city; county town,5.0,35
+Q172438,Peterborough,-0.243056,52.5725,194000.0,big city; city; new town (UK),4.97,36
+Q170478,Bournemouth,-1.88,50.72,187503.0,town of the United Kingdom,4.89,37
+Q216649,Basildon,0.4886,51.5761,185900.0,new town (UK); town,4.87,38
+Q153647,St Helens,-2.7461,53.4541,183248.0,big city; town,4.83,39
+Q215733,Warrington,-2.60288,53.38732,165456.0,big city; new town (UK); town,4.59,40
+Q201812,Huddersfield,-1.779722,53.645,162949.0,big city; market town; town,4.55,41
+Q161491,Reading,-0.973056,51.454167,162666.0,county town; town of the United Kingdom,4.55,42
+Q203995,Southend-on-Sea,0.71377,51.53789,160257.0,city,4.52,43
+Q101254,Newport,-2.997778,51.588611,159600.0,big city; city,4.51,44
+Q184775,Ipswich,1.155555,52.059445,151562.0,county town,4.39,45
+Q123709,Dundee,-2.97,56.460556,148280.0,big city; city,4.35,46
+Q34217,Oxford,-1.257778,51.751944,147500.0,city; college town; county town,4.33,47
+Q170497,Gloucester,-2.245833,51.865278,145563.0,big city; city; county town,4.31,48
+Q203349,Poole,-1.983333,50.716667,144800.0,town,4.29,49
+Q576938,Telford,-2.4475,52.679167,142723.0,big city; new town (UK); town,4.26,50
+Q184090,Preston,-2.698056,53.759445,141801.0,big city; city; county town,4.25,51
+Q171866,Middlesbrough,-1.233333,54.573889,140545.0,big city; town,4.23,52
+Q170377,Blackpool,-3.05,53.816667,139305.0,town,4.21,53
+Q1022733,Sale,-2.322,53.424,134022.0,town,4.13,54
+Q134672,Exeter,-3.526944,50.725555,124180.0,big city; city; county town,3.98,55
+Q350,Cambridge,0.1225,52.208055,123867.0,big city; city; city of United Kingdom; college town; county town,3.97,56
+Q184163,Colchester,0.903611,51.888611,121859.0,city; market town; town,3.94,57
+Q64116,High Wycombe,-0.751667,51.621667,120256.0,market town; town,3.91,58
+Q211907,Slough,-0.593056,51.509722,119070.0,big city; town,3.89,59
+Q188313,Blackburn,-2.4769,53.7449,117963.0,town of the United Kingdom,3.88,60
+Q206988,Cheltenham,-2.078428,51.896519,116447.0,big city; town,3.85,61
+Q210985,Chelmsford,0.4798,51.7361,115369.0,city; city of United Kingdom; county town; market town,3.83,62
+Q474605,Rochdale,-2.161,53.6136,110194.0,town,3.75,63
+Q58900,Doncaster,-1.1325,53.522778,109805.0,city,3.74,64
+Q217039,Rotherham,-1.357222,53.43,109691.0,big city; town,3.74,65
+Q213180,Maidstone,0.529444,51.271667,109490.0,county town; market town,3.73,66
+Q671348,Worthing,-0.371386,50.814711,109120.0,town,3.73,67
+Q610238,Gillingham,0.5498,51.3792,108483.0,locality; town,3.72,68
+Q810196,Basingstoke,-1.086198,51.262826,107355.0,big city; town,3.7,69
+Q844908,Crawley,-0.1937,51.1157,106597.0,new town (UK); town,3.68,70
+Q826561,Halifax,-1.863,53.725,104100.0,market town; town,3.64,71
+Q208143,Wigan,-2.631667,53.544722,103608.0,big city; market town; town,3.63,72
+Q1646181,Worcester,-2.220555,52.191111,101891.0,big city; city; county town,3.6,73
+Q208262,Eastbourne,0.286111,50.766389,101689.0,big city; market town; seaside resort,3.6,74
+Q216638,Wakefield,-1.4975,53.6825,99251.0,city,3.55,75
+Q180057,Lincoln,-0.55,53.25,97541.0,big city; city; county town,3.52,76
+Q202628,Oldham,-2.118333,53.544722,96555.0,town,3.51,77
+Q2117331,Rayleigh,0.6049,51.5864,95580.0,market town; town,3.49,78
+Q3532,Hemel Hempstead,-0.448611,51.753333,94932.0,new town (UK); planned community; town,3.48,79
+Q22889,Bath,-2.359722,51.381389,94092.0,city of United Kingdom; urban area,3.46,80
+Q213181,Darlington,-1.557222,54.522778,93015.0,town,3.44,81
+Q208257,Bedford,-0.463055,52.134444,92407.0,county town; market town,3.43,82
+Q868647,Southport,-3.008056,53.646944,91703.0,seaside resort; town,3.42,83
+Q29245,Hastings,0.583333,50.855,91053.0,market town; town,3.4,84
+Q2598,Watford,-0.395833,51.655278,90301.0,market town; town,3.39,85
+Q19795,Stevenage,-0.201944,51.901667,89663.0,new town (UK); town,3.38,86
+Q179406,Grimsby,-0.08,53.5675,88243.0,town,3.35,87
+Q215752,Hartlepool,-1.216667,54.683333,87995.0,town,3.35,88
+Q170263,Chester,-2.883333,53.2,87507.0,city; county town,3.34,89
+Q175632,Nuneaton,-1.4683,52.523,86552.0,town,3.32,90
+Q163584,Derry,-7.341667,54.991667,85016.0,border city; city,3.29,91
+Q213474,Aylesbury,-0.8124,51.8168,83407.0,county town; market town,3.26,92
+Q725261,Ashford,0.8676,51.1465,83213.0,market town; town of the United Kingdom,3.25,93
+Q989418,Stockton-on-Tees,-1.32,54.57,82729.0,town,3.25,94
+Q6226,St Albans,-0.336,51.755,82146.0,city,3.23,95
+Q852729,Harlow,0.116667,51.783333,82059.0,new town (UK); town,3.23,96
+Q209096,Burnley,-2.248055,53.788889,82002.0,market town,3.23,97
+Q865716,Redditch,-1.949167,52.306945,81919.0,town,3.23,98
+Q810847,Batley,-1.635556,53.716667,80485.0,town,3.2,99
+Q913386,Scunthorpe,-0.6502,53.5809,79977.0,town,3.19,100
+Q841979,Mansfield,-1.1963,53.1435,79921.0,market town,3.19,101
+Q213832,Dudley,-2.1,52.516667,79379.0,town,3.18,102
+Q47822,Bury,-2.298553,53.59315,78729.0,market town; town,3.17,103
+Q731069,Eastleigh,-1.35,50.966667,78716.0,town,3.17,104
+Q783210,Bracknell,-0.749,51.416,77256.0,new town (UK); town,3.14,105
+Q211870,Paisley,-4.423889,55.845556,77220.0,town,3.14,106
+Q213465,Guildford,-0.5746,51.2354,77057.0,county town; market town,3.13,107
+Q909993,Brentwood,0.305,51.620278,77047.0,town,3.13,108
+Q201970,Shrewsbury,-2.754444,52.708056,76802.0,county town; market town,3.13,109
+Q823600,Chesterfield,-1.4275,53.235833,76402.0,market town,3.12,110
+Q845623,Weston-super-Mare,-2.978055,51.347778,76143.0,town,3.11,111
+Q192896,Carlisle,-2.936389,54.894722,75399.0,city; city of United Kingdom; county town,3.1,112
+Q279000,South Shields,-1.43,54.995,75337.0,town,3.1,113
+Q654226,East Kilbride,-4.18333,55.76667,75120.0,town,3.09,114
+Q1000597,Burton upon Trent,-1.636667,52.801945,75074.0,market town; town,3.09,115
+Q676689,Gravesend,0.368611,51.441667,74000.0,market town; town,3.07,116
+Q704864,Tamworth,-1.695,52.633889,73924.0,town,3.07,117
+Q215829,Harrogate,-1.537778,53.991944,73576.0,town,3.06,118
+Q648810,Crewe,-2.44,53.099,73241.0,railway town; town,3.05,119
+Q1828035,Lisburn,-6.033333,54.516667,71465.0,city,3.02,120
+Q986007,Lowestoft,1.75,52.48,70945.0,town,3.01,121
+Q623765,Rugby,-1.26,52.37,70627.0,market town; town,3.0,122
+Q826782,Stafford,-2.1171,52.8066,70592.0,county town,3.0,123
+Q1755020,Tynemouth,-1.423,55.017,68202.0,town,2.95,124
+Q992665,Cannock,-2.029,52.688,67768.0,town,2.94,125
+Q504530,Walsall,-1.98,52.58,67594.0,town of the United Kingdom,2.93,126
+Q1018448,Washington,-1.52,54.9,67158.0,town,2.92,127
+Q909146,Godalming,-0.61,51.185,66773.0,market town; town,2.92,128
+Q2003600,Walton-on-Thames,-0.413394,51.386797,66566.0,town,2.91,129
+Q547071,Farnborough,-0.75,51.29,65034.0,town,2.88,130
+Q537323,Loughborough,-1.2046,52.7705,64880.0,town,2.87,131
+Q311975,Boston,-0.0214,52.9746,64600.0,market town; town,2.87,132
+Q776662,Paignton,-3.5625,50.435278,64410.0,town,2.86,133
+Q937631,Waterlooville,-1.03,50.88,64350.0,town,2.86,134
+Q2342139,Guiseley,-1.706,53.875,64000.0,town,2.85,135
+Q890621,Bognor Regis,-0.676389,50.78237,63885.0,seaside resort; town,2.85,136
+Q238803,Maidenhead,-0.716667,51.516667,63580.0,town,2.85,137
+Q661707,Stourbridge,-2.148,52.458,63298.0,town,2.84,138
+Q204720,Hereford,-2.716111,52.056389,63024.0,city; county town,2.83,139
+Q507517,Rochester,0.50546,51.38764,62982.0,market town; town,2.83,140
+Q525508,Dewsbury,-1.633333,53.683333,62945.0,market town; town,2.83,141
+Q646225,Woking,-0.561111,51.316111,62796.0,town,2.83,142
+Q994925,Corby,-0.696389,52.491389,62341.0,new town (UK); town,2.82,143
+Q1009316,Runcorn,-2.733611,53.341944,61789.0,new town (UK); town,2.8,144
+Q743521,Scarborough,-0.4,54.2825,61749.0,town,2.8,145
+Q496368,Wrexham,-2.993611,53.046667,61603.0,city,2.8,146
+Q1022741,Widnes,-2.728,53.363,61464.0,town,2.8,147
+Q1011600,Ellesmere Port,-2.897,53.279,61090.0,town,2.79,148
+Q806551,Bangor,-5.67,54.66,61011.0,city status in the United Kingdom,2.79,149
+Q845619,Taunton,-3.1,51.019167,60479.0,county town; market town,2.77,150
+Q612260,Halesowen,-2.050936,52.450164,60097.0,town,2.77,151
+Q752762,Merthyr Tydfil,-3.378056,51.747222,58839.0,town,2.74,152
+Q990112,Littlehampton,-0.540889,50.809381,58357.0,town,2.73,153
+Q665489,Royal Tunbridge Wells,0.263,51.132,57772.0,market town; town,2.71,154
+Q1004085,Craigavon,-6.38833,54.4472,57685.0,town,2.71,155
+Q844062,Kidderminster,-2.249,52.3885,57409.0,town,2.7,156
+Q990168,Keighley,-1.916667,53.866667,57339.0,market town; town,2.7,157
+Q813552,Bebington,-3.003,53.35,57336.0,town,2.7,158
+Q646980,Aldershot,-0.761389,51.248333,57211.0,town of the United Kingdom,2.7,159
+Q848287,Livingston,-3.5157,55.8834,57030.0,town,2.69,160
+Q868637,Macclesfield,-2.1274,53.2581,56581.0,market town; town,2.68,161
+Q984613,Kettering,-0.733333,52.4,56226.0,market town; town,2.68,162
+Q546635,Leamington Spa,-1.535833,52.291944,55733.0,town,2.66,163
+Q671892,Barrow-in-Furness,-3.226389,54.110833,55489.0,town,2.66,164
+Q29303,Canterbury,1.0775,51.278333,54880.0,city of United Kingdom; market town,2.64,165
+Q913499,Wellingborough,-0.6964,52.294,54733.0,market town,2.64,166
+Q661619,Weymouth,-2.454722,50.609722,54539.0,town,2.64,167
+Q1626044,Sittingbourne,0.74,51.34,54392.0,town,2.63,168
+Q925424,Christchurch,-1.78,50.73,54210.0,town,2.63,169
+Q4131,Hamilton,-4.039,55.777,54080.0,town,2.62,170
+Q809009,Barry,-3.2667,51.4064,53369.0,town,2.61,171
+Q211950,Dunfermline,-3.461667,56.071389,53100.0,city,2.6,172
+Q205905,Lancaster,-2.801389,54.048889,52660.0,city; county town,2.59,173
+Q445058,Altrincham,-2.355669,53.383372,52419.0,market town; town,2.58,174
+Q996616,Cumbernauld,-3.98,55.94,52270.0,town,2.58,175
+Q814121,Beeston,-1.2156,52.9267,52000.0,market town; town,2.57,176
+Q2571140,Bloxwich,-2.0162,52.6158,51879.0,town,2.57,177
+Q19789,Welwyn Garden City,-0.1932,51.8062,51505.0,new town (UK); town,2.56,178
+Q617799,Willenhall,-2.06046,52.5798,51429.0,town,2.56,179
+Q375314,Folkestone,1.179445,51.079167,51337.0,town,2.56,180
+Q858775,Dartford,0.217222,51.444444,51240.0,market town; town,2.55,181
+Q492805,Andover,-1.4667,51.2167,50999.0,town,2.55,182
+Q177544,Horsham,-0.325,51.062,50934.0,market town; town,2.55,183
+Q637482,Esher,-0.365,51.3691,50904.0,town,2.55,184
+Q1020362,Hinckley,-1.3725,52.5413,50712.0,town,2.54,185
+Q2003342,Neath,-3.81,51.66,50658.0,town,2.54,186
+Q985833,Clacton-on-Sea,1.1457,51.7918,50548.0,town,2.54,187
+Q2571152,Rowley Regis,-2.06,52.48,50257.0,town,2.53,188
+Q6497774,Bridgend,-3.5784,51.5072,49404.0,market town; town,2.51,189
+Q209055,Torquay,-3.528056,50.4625,48563.0,town,2.49,190
+Q990153,Cwmbran,-3.021,51.653,48535.0,new town (UK); planned community; town,2.49,191
+Q691685,Kirkcaldy,-3.167369,56.110731,48108.0,town,2.47,192
+Q179815,Durham,-1.566667,54.783333,48069.0,city; county town,2.47,193
+Q203000,Perth,-3.433333,56.395833,47430.0,city,2.46,194
+Q160493,Inverness,-4.225833,57.483889,47380.0,city,2.46,195
+Q806160,Banbury,-1.339167,52.061389,46853.0,market town,2.44,196
+Q654216,Ayr,-4.627778,55.463889,46780.0,county town; town,2.44,197
+Q576562,Kilmarnock,-4.494444,55.611667,46770.0,town,2.44,198
+Q1000679,Wokingham,-0.84,51.41,46745.0,market town; town,2.44,199
+Q1234712,Havant,-0.98,50.85,45826.0,town,2.42,200
+Q2469070,Kirkby,-2.892,53.4826,45564.0,town,2.41,201
+Q160642,Salisbury,-1.7936,51.074,45477.0,city,2.41,202
+Q659803,Ashton-under-Lyne,-2.0975,53.487222,45198.0,market town; town,2.4,203
+Q546485,Castleford,-1.356,53.716,45106.0,town,2.4,204
+Q2281091,Worksop,-1.122778,53.309722,44733.0,market town; town,2.39,205
+Q991532,Grays,0.3247,51.4724,44341.0,town,2.38,206
+Q1018723,Coatbridge,-4.026667,55.8625,43960.0,town,2.37,207
+Q1248150,Wallsend,-1.5311,54.991281,43826.0,town,2.36,208
+Q853012,Bexhill-on-Sea,0.471111,50.841667,43754.0,town,2.36,209
+Q676067,Braintree,0.5495,51.8781,43215.0,market town; town,2.35,210
+Q19788,Hatfield,-0.225833,51.763611,43090.0,new town (UK); town,2.34,211
+Q2560244,Middleton,-2.18795,53.5552,42972.0,town,2.34,212
+Q1757473,Lytham St Annes,-2.997,53.7426,42954.0,town,2.34,213
+Q157341,King's Lynn,0.3976,52.7543,42800.0,kontor; market town,2.33,214
+Q1017943,Fareham,-1.18,50.85,42640.0,market town; town,2.33,215
+Q1477061,Hoddesdon,-0.015,51.759,42253.0,town,2.32,216
+Q217831,Greenock,-4.766667,55.95,41990.0,town,2.31,217
+Q736439,Ramsgate,1.404031,51.343911,41907.0,town,2.31,218
+Q4006479,Urmston,-2.3747,53.4487,41731.0,town,2.31,219
+Q2588021,Leigh,-2.515,53.4975,41275.0,town,2.29,220
+Q764754,Bury St Edmunds,0.7125,52.246667,41212.0,market town,2.29,221
+Q655874,Newbury,-1.3235,51.4009,41075.0,market town; town,2.29,222
+Q19797,Bishop's Stortford,0.1725,51.872,40955.0,market town; town,2.28,223
+Q2061067,Ilkeston,-1.309167,52.971111,40953.0,town,2.28,224
+Q919778,Dunstable,-0.52102,51.886,40699.0,market town,2.28,225
+Q886899,Blyth,-1.514,55.126,39769.0,town,2.25,226
+Q1807596,Aldridge,-1.917869,52.606,39475.0,town,2.24,227
+Q587765,Cleethorpes,-0.02155,53.5533,38996.0,seaside resort; town,2.23,228
+Q668237,Skelmersdale,-2.7712,53.5495,38813.0,new town (UK); town,2.22,229
+Q237253,Great Yarmouth,1.733056,52.607778,38693.0,market town; seaside resort; town,2.22,230
+Q936183,Tonbridge,0.275,51.195833,38657.0,market town; town,2.22,231
+Q2569138,Leyland,-2.699167,53.690278,38578.0,town,2.22,232
+Q943351,Glenrothes,-3.173055,56.197222,38510.0,town,2.21,233
+Q2078535,Chorley,-2.632,53.653,38420.0,market town; town,2.21,234
+Q929286,Herne Bay,1.127,51.3706,38385.0,town,2.21,235
+Q1033978,Canvey Island,0.5725,51.525,38327.0,town,2.21,236
+Q2575441,Whitley Bay,-1.4443,55.0456,38323.0,town,2.21,237
+Q914015,Bridgwater,-2.993,51.128,38310.0,market town; town,2.21,238
+Q182923,Stirling,-3.9369,56.1166,37910.0,city,2.2,239
+Q694780,Arnold,-1.122,53.0,37768.0,market town,2.19,240
+Q1626288,Long Eaton,-1.271,52.899,37760.0,town,2.19,241
+Q265647,Trowbridge,-2.207,51.32,37647.0,county town,2.19,242
+Q127159,Bletchley,-0.732,51.994,37520.0,town,2.19,243
+Q2462645,Leighton Buzzard,-0.6617,51.9165,37469.0,town,2.18,244
+Q408536,Airdrie,-3.98,55.866,37410.0,town,2.18,245
+Q1072019,Port Talbot,-3.764835,51.59809,37276.0,town,2.18,246
+Q1193749,Redcar,-1.068561,54.618561,37073.0,town,2.17,247
+Q990125,Llanelli,-4.15,51.683333,37050.0,town,2.17,248
+Q251903,Bicester,-1.15,51.9,37002.0,market town; town,2.17,249
+Q741400,Camberley,-0.742,51.335,36783.0,town,2.16,250
+Q775299,Chippenham,-2.1158,51.4585,36762.0,market town; town,2.16,251
+Q2326854,Houghton-le-Spring,-1.468,54.841,36746.0,town,2.16,252
+Q2023476,Denton,-2.1122,53.4554,36591.0,town,2.16,253
+Q2119187,Sutton in Ashfield,-1.2669,53.1233,36404.0,town,2.15,254
+Q19773,Borehamwood,-0.2723,51.6578,36322.0,town,2.15,255
+Q862891,Billingham,-1.27,54.61,36165.0,town,2.15,256
+Q2080165,Hyde,-2.082,53.4474,35895.0,town,2.14,257
+Q623687,Falkirk,-3.784722,55.999444,35850.0,town,2.14,258
+Q1633759,Hucknall,-1.2013,53.0339,35849.0,market town; town,2.14,259
+Q1021179,Morley,-1.602264,53.749167,35776.0,market town; town,2.13,260
+Q4017800,Walkden,-2.3991,53.5239,35616.0,town,2.13,261
+Q1007093,Exmouth,-3.413,50.62,35499.0,town,2.13,262
+Q1622949,Accrington,-2.36384,53.75337,35456.0,town,2.12,263
+Q527391,Bridlington,-0.2004,54.088,35369.0,town,2.12,264
+Q172157,Winchester,-1.308611,51.063333,35200.0,city; county town,2.12,265
+Q963723,Ewell,-0.2486,51.3502,34872.0,town,2.11,266
+Q985279,Morecambe,-2.85,54.066667,34768.0,town,2.1,267
+Q846683,Grantham,-0.638055,52.918055,34592.0,market town; town,2.1,268
+Q2569065,Swadlincote,-1.557,52.774,34576.0,town,2.1,269
+Q19798,Hitchin,-0.283,51.947,34266.0,market town,2.09,270
+Q2576971,Rainham,0.607947,51.359464,34088.0,town,2.08,271
+Q19801,Letchworth Garden City,-0.23,51.978,33986.0,town,2.08,272
+Q207371,Lichfield,-1.82653,52.6835,33816.0,city,2.07,273
+Q1774629,Irvine,-4.661111,55.619444,33698.0,town of the United Kingdom,2.07,274
+Q2011679,Winsford,-2.52,53.194,33546.0,town,2.07,275
+Q1857774,Nelson,-2.218,53.8346,33488.0,town,2.06,276
+Q652035,Dumfries,-3.616667,55.066667,33440.0,town,2.06,277
+Q373971,Loughton,0.0735,51.6494,33346.0,town,2.06,278
+Q924360,Stanley,-1.692,54.867,33320.0,town,2.06,279
+Q1639484,Huyton,-2.843,53.41,33193.0,town,2.06,280
+Q321381,Abingdon-on-Thames,-1.278333,51.671667,33130.0,market town,2.05,281
+Q1018225,St Neots,-0.266667,52.227778,33103.0,market town; town,2.05,282
+Q5524307,Garston,-0.3845,51.6889,33000.0,Village,2.05,283
+Q768714,Portadown,-6.45824,54.421,32926.0,human settlement,2.05,284
+Q549761,Warwick,-1.59,52.28,32719.0,county town,2.04,285
+Q595811,Earley,-0.933,51.433,32640.0,town,2.04,286
+Q737547,Motherwell,-3.995556,55.789167,32590.0,town,2.04,287
+Q1014934,Burgess Hill,-0.1262,50.9535,32491.0,town,2.03,288
+Q183296,Brighouse,-1.794,53.707,32360.0,town,2.03,289
+Q1009242,Didcot,-1.241111,51.606111,32186.0,town,2.02,290
+Q464955,Windsor,-0.6,51.483333,32184.0,market municipality; town,2.02,291
+Q2502180,Ecclesfield,-1.4698,53.4429,32073.0,Village,2.02,292
+Q1987237,Rushden,-0.601,52.288,31687.0,town,2.01,293
+Q550110,Yeovil,-2.637,50.9452,31633.0,market town; town,2.01,294
+Q1012031,Wisbech,0.160311,52.664161,31573.0,market town; town,2.0,295
+Q1003559,Prestwich,-2.2833,53.5333,31500.0,town,2.0,296
+Q993164,Epsom,-0.2675,51.336111,31489.0,town,2.0,297
+Q1024900,Pontypridd,-3.33682,51.59672,31206.0,town,1.99,298
+Q805451,Ballymena,-6.268,54.862,31205.0,town,1.99,299
+Q813962,Bedworth,-1.477,52.475,31090.0,market town; town,1.99,300
+Q179224,Dover,1.312222,51.1275,31022.0,market town; town,1.99,301
+Q207639,Chichester,-0.7792,50.8365,30925.0,city; county town; market town,1.98,302
+Q1009235,Pontefract,-1.312,53.691,30881.0,market town,1.98,303
+Q851718,Beverley,-0.431568,53.842549,30831.0,market town; town,1.98,304
+Q920646,Haywards Heath,-0.0979,51.0048,30826.0,town,1.98,305
+Q19785,Harpenden,-0.3524,51.8175,30674.0,town,1.98,306
+Q1185203,Spalding,-0.1529,52.7858,30556.0,market town; town,1.97,307
+Q189288,Stratford-upon-Avon,-1.706389,52.192778,30495.0,town,1.97,308
+Q623323,Malvern,-2.325,52.108,30462.0,town,1.97,309
+Q49940,Newark-on-Trent,-0.81,53.0765,30345.0,market town,1.97,310
+Q2305226,Wishaw,-3.918333,55.774167,30290.0,town,1.96,311
+Q964785,Whitstable,1.025694,51.360695,30195.0,town,1.96,312
+Q918787,Cramlington,-1.585,55.082,30077.0,town,1.96,313
+Q5331561,Ebbsfleet Valley,0.297071,51.4343,30000.0,planned community,1.95,314
+Q968937,Radcliffe,-2.3268,53.5615,29950.0,town,1.95,315
+Q2087380,Northfleet,0.324783,51.447589,29900.0,town,1.95,316
+Q4383991,Bulwell,-1.19723,53.0005,29771.0,market town; town,1.95,317
+Q2192709,Newtownards,-5.68,54.591,29677.0,town,1.94,318
+Q990166,Witney,-1.49,51.78,29629.0,market town; town,1.94,319
+Q994575,Kendal,-2.745,54.326,29594.0,town,1.94,320
+Q9681,Hertford,-0.078,51.795,29418.0,county town,1.94,321
+Q1190876,Bromsgrove,-2.0579,52.3353,29237.0,town,1.93,322
+Q1018505,Cambuslang,-4.16,55.81,29100.0,town,1.92,323
+Q674669,Heswall,-3.099,53.328,29075.0,town,1.92,324
+Q1021164,Pontypool,-3.041,51.703,29062.0,town,1.92,325
+Q2334867,Woodley,-0.902,51.453,28848.0,town,1.92,326
+Q2574529,Stanford-le-Hope,0.4244,51.514,28765.0,town,1.91,327
+Q1242441,Frome,-2.3215,51.2279,28567.0,market town; town,1.91,328
+Q862832,Billericay,0.4184,51.628,28562.0,market town; town,1.91,329
+Q1125738,Congleton,-2.217,53.162,28488.0,town,1.9,330
+Q10996,Bushey,-0.3604,51.6429,28416.0,town,1.9,331
+Q202348,Ashington,-1.568,55.181,28280.0,town,1.9,332
+Q1013970,Heywood,-2.219,53.59,28205.0,town,1.9,333
+Q1020354,Carrickfergus,-5.8075,54.713611,28141.0,town,1.89,334
+Q641756,Daventry,-1.162778,52.257778,28134.0,market town; town,1.89,335
+Q1166842,Darwen,-2.461,53.698,28124.0,market town; town,1.89,336
+Q1908426,Bearsden,-4.333202,55.919238,28120.0,town,1.89,337
+Q269980,Newry,-6.349167,54.175556,27913.0,city,1.89,338
+Q1861278,Witham,0.6373,51.7978,27797.0,town,1.88,339
+Q1277887,East Grinstead,-0.014445,51.128611,27785.0,market town; town,1.88,340
+Q1018423,Melton Mowbray,-0.886,52.7661,27737.0,town,1.88,341
+Q585963,Evesham,-1.95,52.09,27684.0,market town; town,1.88,342
+Q19832995,St Annes,-3.03199,53.75129,27630.0,town,1.88,343
+Q932841,Wickford,0.5207,51.6114,27601.0,town,1.87,344
+Q782155,Jarrow,-1.49,54.981389,27526.0,town,1.87,345
+Q2280939,Horley,-0.1721,51.1736,27426.0,town,1.87,346
+Q7502529,Shotley Bridge,-1.86,54.87,27394.0,Village,1.87,347
+Q660484,Newton Abbot,-3.6087,50.5403,27092.0,market town; town,1.86,348
+Q2020203,Rhyl,-3.480189,53.321231,27060.0,seaside resort; town,1.86,349
+Q237250,Thetford,0.74,52.41,27027.0,market town; town,1.86,350
+Q1640242,Seaford,0.1,50.77,26955.0,town,1.85,351
+Q262092,Haverhill,0.44,52.08,26860.0,market town; town,1.85,352
+Q1398653,Stalybridge,-2.04,53.4834,26830.0,town,1.85,353
+Q649909,Burntwood,-1.92,52.6831,26713.0,town,1.84,354
+Q1018543,Newton Mearns,-4.3347,55.7716,26600.0,town,1.84,355
+Q3152568,Kirkburton,-1.703,53.61,26439.0,Village,1.83,356
+Q339608,Newton Aycliffe,-1.58,54.62,26415.0,new town (UK); town,1.83,357
+Q1260116,Droitwich Spa,-2.153,52.267,26410.0,town,1.83,358
+Q2557991,Ashton-in-Makerfield,-2.641,53.487,26380.0,town,1.83,359
+Q996502,Clydebank,-4.4006,55.8997,26320.0,town,1.83,360
+Q1018157,Portishead,-2.7886,51.3201,26305.0,town,1.83,361
+Q2011497,Wilmslow,-2.239,53.325,26265.0,town,1.83,362
+Q1012507,Fleetwood,-3.015,53.925,26226.0,town,1.83,363
+Q2080364,Consett,-1.83,54.85,25812.0,town,1.81,364
+Q1235919,New Milton,-1.6682,50.758619,25717.0,market town; town,1.81,365
+Q643160,Farnham,-0.799,51.214,25604.0,market town; town,1.81,366
+Q1026304,Thatcham,-1.2645,51.405,25466.0,town,1.8,367
+Q866339,Bishop Auckland,-1.68,54.66,25455.0,market town; town,1.8,368
+Q1538358,Workington,-3.5549,54.6365,25448.0,town,1.8,369
+Q685640,Huntingdon,-0.1717,52.3364,25432.0,market town,1.8,370
+Q1009290,Pudsey,-1.663,53.797,25393.0,market town; town,1.8,371
+Q686319,Westhoughton,-2.529,53.548,25329.0,town,1.8,372
+Q738869,Kirkby-in-Ashfield,-1.25,53.1,25265.0,town,1.79,373
+Q1702713,Lurgan,-6.33222,54.4647,25069.0,town,1.79,374
+Q1012481,Whitehaven,-3.5855,54.548,25032.0,town,1.79,375
+Q3785707,Hindley,-2.5658,53.5355,25001.0,town,1.78,376
