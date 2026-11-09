@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Manhattanhenge for every British town</title>
+<meta name="description" content="37,224 straight named streets in 377 UK towns and cities, and the days the sun rises or sets straight down each one.">
+<meta property="og:title" content="Manhattanhenge for every British town">
+<meta property="og:description" content="On which days does the sun set straight down your street? 37,224 straight streets in 377 UK towns, with the hills on the skyline.">
+<meta property="og:image" content="https://maps.tristanhotham.com/street-henge/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/street-henge/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=MedievalSharp&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+:root{
+  --bg:#F6EED8; --panel:#EFE3C4; --fg:#2B2119; --muted:#6E604E; --rule:#E2D3AE; --card:#FBF5E4; --border:#D3C29A;
+  --hot:#A3261B; --cool:#3D6E9E;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --hand:"MedievalSharp","Fraunces",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1612; --panel:#241E18; --fg:#EFE6D4; --muted:#ADA08B; --rule:#3A3128; --card:#211B15; --border:#4D4234; --hot:#E07A6C; --cool:#8FB4DA; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1612; --panel:#241E18; --fg:#EFE6D4; --muted:#ADA08B; --rule:#3A3128; --card:#211B15; --border:#4D4234; --hot:#E07A6C; --cool:#8FB4DA; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 64px}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:#A3261B;color:#fff;padding:5px 8px;font-weight:500}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+p{margin:0 0 16px}
+.lede::first-letter{font:400 76px/.8 var(--hand);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+ul.plain{padding-left:20px} ul.plain li{margin:4px 0}
+details{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;margin:18px 0;font-size:16px}
+summary{font:500 13px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:#A3261B;border-color:#A3261B;color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:4px 8px;cursor:pointer;min-height:28px}
+.figure{margin:22px 0}
+.figure img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+.stat{border:1px solid var(--border);background:var(--card);padding:10px 12px}
+.stat b{display:block;font:800 30px/1 var(--display);color:var(--hot)}
+.stat span{font:400 12.5px/1.35 var(--mono);color:var(--muted)}
+table.words{border-collapse:collapse;width:100%;font:400 13px/1.35 var(--mono);margin:12px 0}
+table.words th,table.words td{border-bottom:1px solid var(--rule);padding:5px 6px;text-align:left;vertical-align:top}
+table.words th{font-weight:500;color:var(--muted)}
+table.words td.r,table.words th.r{text-align:right}
+.tw{overflow-x:auto}
+
+/* ---- the map ---- */
+.topbar{height:40px;display:flex;align-items:center;gap:14px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:0 max(14px,env(safe-area-inset-left,0px));border-bottom:3px double var(--fg);background:var(--bg);overflow:hidden;white-space:nowrap}
+.tb-name{font:400 19px/1 var(--hand);color:var(--hot);text-decoration:none;letter-spacing:.03em}
+.tb-k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tb-links{margin-left:auto;display:flex;gap:16px;align-items:center;font:500 12px/1 var(--mono)}
+.tb-links a{text-decoration:none}.tb-links a:hover{text-decoration:underline}
+.mapband{width:100vw;margin-left:calc(50% - 50vw)}
+#map{position:relative;height:calc(100vh - 43px);height:calc(100svh - 43px);min-height:460px;border-bottom:1px solid #BCA676;background:#F3E5BF;overflow:hidden}
+#map::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 90px rgba(120,84,30,.22), inset 0 0 18px rgba(120,84,30,.18)}
+.cartouche{position:absolute;left:14px;top:14px;z-index:5;max-width:min(340px,calc(100% - 28px));background:rgba(251,243,220,.95);color:#2B2119;border:2px solid #2B2119;outline:1px solid #2B2119;outline-offset:-6px;padding:10px 14px;box-shadow:0 3px 14px rgba(60,40,10,.22)}
+.cartouche::before,.cartouche::after{content:"";position:absolute;width:9px;height:9px;background:#A3261B;border:1px solid #2B2119;border-radius:50%}
+.cartouche::before{left:-6px;top:-6px}.cartouche::after{right:-6px;bottom:-6px}
+.cartouche h1{font:900 clamp(21px,2.2vw,28px)/1.02 var(--display);letter-spacing:-.015em;margin:6px 0 0;color:#2B2119}
+.cartouche h1 .a{color:#A3261B;font-family:var(--hand);font-weight:400;letter-spacing:.03em}
+.cartouche .dek{font-size:13.5px;line-height:1.36;margin:6px 0 0;color:#2B2119}
+.cartouche .byline{font:400 11px/1.35 var(--mono);color:#6E604E;margin-top:6px}
+.cartouche .kicker{color:#6E604E}
+.ct-fold{position:absolute;right:6px;top:5px;width:26px;height:26px;border:0;background:none;color:#A3261B;font:400 18px/1 var(--hand);cursor:pointer;padding:0}
+.ct-toggle{display:none;font:400 17px/1 var(--hand);color:#A3261B;background:none;border:0;padding:2px 0;cursor:pointer;min-height:30px}
+.cartouche.folded .ct-body,.cartouche.folded .ct-fold{display:none}.cartouche.folded .ct-toggle{display:block}.cartouche.folded{padding:4px 11px}
+.ov{position:absolute;z-index:5;font:400 13px/1.3 var(--mono);color:#2B2119}
+.ov-top{right:54px;top:10px;max-width:calc(100% - 430px);display:flex;flex-direction:column;gap:6px;align-items:flex-end;pointer-events:none}
+.ov-top>*{pointer-events:auto}
+.srch{position:relative;width:min(340px,100%)}
+.srch input{width:100%;font:400 15px/1 var(--mono);background:rgba(251,245,228,.96);color:#2B2119;border:1px solid #9C8656;border-radius:3px;padding:9px 10px;min-height:40px;box-shadow:0 1px 4px rgba(60,40,10,.18)}
+.srch input:focus-visible,.chip:focus-visible,.lp label:focus-within,.lp select:focus-visible{outline:2px solid #A3261B;outline-offset:2px}
+.sug{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:#FBF5E4;border:1px solid #9C8656;max-height:300px;overflow:auto;display:none;box-shadow:0 3px 10px rgba(60,40,10,.2);z-index:12}
+.sug li{padding:8px 10px;cursor:pointer;border-bottom:1px solid #E7D9B6}
+.sug li span{color:#7A6A52;font-size:12px}
+.sug li[aria-selected="true"],.sug li:hover{background:#EFE1BC}
+.chips{display:flex;gap:6px;overflow-x:auto;max-width:100%;scrollbar-width:none;padding-bottom:2px;justify-content:flex-end;flex-wrap:wrap}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:500 12px/1 var(--mono);background:rgba(251,245,228,.94);color:#2B2119;border:1px solid #9C8656;border-radius:999px;padding:7px 10px;cursor:pointer;min-height:32px;white-space:nowrap;box-shadow:0 1px 3px rgba(60,40,10,.14);display:inline-flex;align-items:center;gap:6px}
+.chip:hover{background:#EFE1BC}
+.chip.lyr{background:#2B2119;color:#F6EED8;border-color:#2B2119}
+.chip.on{background:#A3261B;color:#fff;border-color:#A3261B}
+.lp{position:absolute;right:54px;top:96px;z-index:9;background:rgba(251,245,228,.98);border:1px solid #9C8656;border-radius:4px;padding:10px 12px 8px;font:400 13px/1.3 var(--mono);color:#2B2119;box-shadow:0 3px 12px rgba(60,40,10,.25);display:none;width:280px;max-height:calc(100% - 110px);overflow:auto}
+.lp.open{display:block}
+.lp h4{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7A6A52}
+.lp h5{margin:9px 0 1px;padding-top:7px;border-top:1px solid #E2D3AE;font:600 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#A3261B}
+.lp label{display:flex;gap:8px;align-items:center;padding:4px 0;cursor:pointer;min-height:30px}
+.lp input{accent-color:#A3261B;width:16px;height:16px;flex:none}
+.lp select{width:100%;font:400 13px/1 var(--mono);padding:6px;border:1px solid #9C8656;border-radius:3px;background:#fff;color:#2B2119;min-height:34px;margin:3px 0 6px}
+.lp .note{font-size:11.5px;color:#6E604E;margin:2px 0 4px}
+.lgd{position:absolute;left:12px;bottom:40px;z-index:4;background:rgba(251,245,228,.95);border:1px solid #9C8656;border-radius:3px;padding:8px 10px;font:400 11.5px/1.3 var(--mono);color:#2B2119;width:236px}
+.lgd b{font-weight:500}
+.lgd .bar{height:10px;margin:5px 0 2px;border:1px solid #2B2119}
+.lgd .ends{display:flex;justify-content:space-between;color:#6E604E;font-size:10.5px}
+.lgd .rw{display:flex;gap:10px;align-items:center;margin-top:6px}
+.lgd canvas{flex:none}
+.lgd .rs{color:#6E604E;font-size:11px;line-height:1.35}
+.lgd .rs b{color:#A3261B;font:800 19px/1 var(--display);display:block}
+.lgd-t{display:none;font:500 12px/1 var(--mono);background:rgba(251,245,228,.95);border:1px solid #9C8656;border-radius:3px;color:#2B2119;padding:6px 9px;cursor:pointer;min-height:30px}
+.ov-br{position:absolute;right:54px;bottom:12px;z-index:4;font:400 11px/1.2 var(--mono);color:#6E604E;background:rgba(251,245,228,.85);padding:5px 7px;border-radius:3px;border:1px solid #D3C29A}
+.maplibregl-popup-content{background:#FBF5E4;color:#2B2119;font:400 13px/1.45 var(--mono);border:1px solid #9C8656;border-radius:4px;padding:10px 12px;box-shadow:0 3px 12px rgba(60,40,10,.25);max-width:300px}
+.maplibregl-popup-content b.t{display:block;font:400 19px/1.15 var(--hand);color:#A3261B;margin-bottom:3px;padding-right:12px}
+.maplibregl-popup-content .m{color:#6E604E}
+.maplibregl-popup-content a{color:#A3261B}
+.maplibregl-popup-content .dial{float:right;margin:0 0 4px 8px}
+.maplibregl-popup-tip{border-top-color:#9C8656!important;border-bottom-color:#9C8656!important}
+.maplibregl-ctrl-attrib{font:400 11px/1.3 var(--mono)!important;background:rgba(251,245,228,.85)!important}
+.maplibregl-ctrl-group{background:#FBF5E4!important;border:1px solid #9C8656}
+.nojs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 14px var(--mono);color:#6E604E;padding:20px;text-align:center}
+@media (max-width:1000px){.ov-top{left:10px;right:54px;max-width:none;align-items:flex-start}.chips{justify-content:flex-start}.lp{left:10px;right:auto}.cartouche{top:auto;bottom:44px;left:auto;right:54px}}
+@media (max-width:600px){
+  #map{height:calc(100svh - 43px - 64px);min-height:440px}
+  .tb-k,.tb-links a:not(:first-of-type){display:none}
+  .ov-top{left:8px;top:8px}
+  .chips{flex-wrap:nowrap;overflow-x:auto}
+  .chip .lg{display:none}
+  .lp{top:96px;left:8px;right:8px;width:auto}
+  .cartouche{left:8px;right:auto;bottom:36px;max-width:calc(100% - 60px);padding:8px 11px}
+  .cartouche h1{font-size:21px}.cartouche .dek{display:none}
+  .ct-toggle{display:block}.ct-fold{display:none}
+  .lgd{bottom:auto;top:96px;left:8px;width:220px}
+  .lgd.fold .lgd-b{display:none}.lgd.fold{padding:0;border:0;background:none;width:auto}.lgd.fold .lgd-t{display:block}
+  .ov-br{display:none}
+  h2{font-size:28px}
+}
+
+.slider{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;z-index:6;width:min(560px,calc(100% - 330px));background:rgba(251,245,228,.96);border:1px solid #9C8656;border-radius:4px;padding:8px 12px 6px;font:400 12.5px/1.3 var(--mono);color:#2B2119;box-shadow:0 3px 12px rgba(60,40,10,.22)}
+.slider .row{display:flex;gap:10px;align-items:center}
+.slider input[type=range]{flex:1;accent-color:#A3261B;min-height:28px}
+.slider b{font:400 18px/1 var(--hand);color:#A3261B;min-width:120px}
+.slider .ev{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.slider button{font:500 11px/1 var(--mono);background:#FBF5E4;border:1px solid #9C8656;border-radius:999px;padding:5px 8px;cursor:pointer;min-height:28px;color:#2B2119}
+.slider button.on{background:#A3261B;color:#fff;border-color:#A3261B}
+.slider .hint{color:#6E604E;font-size:11.5px;margin-top:3px}
+.tp{position:absolute;left:14px;top:14px;z-index:6;width:min(330px,calc(100% - 28px));max-height:calc(100% - 230px);overflow:auto;background:rgba(251,245,228,.97);border:1px solid #9C8656;border-radius:4px;padding:10px 12px;font:400 12.5px/1.4 var(--mono);color:#2B2119;box-shadow:0 3px 12px rgba(60,40,10,.25);display:none}
+.tp.open{display:block}
+.tp h3{font:400 22px/1.1 var(--hand);color:#A3261B;margin:0 18px 4px 0}
+.tp .x{position:absolute;right:6px;top:4px;border:0;background:none;font:400 20px/1 var(--hand);color:#A3261B;cursor:pointer;min-width:28px;min-height:28px}
+.tp canvas{width:100%;height:auto;display:block;margin:6px 0}
+.tp ol{padding-left:18px;margin:4px 0}.tp li{margin:2px 0}
+.tp a{color:#A3261B;cursor:pointer}
+@media (max-width:1000px){.slider{width:calc(100% - 80px);left:10px;transform:none}}
+@media (max-width:600px){.slider{bottom:8px;left:8px;right:52px;width:auto;padding:6px 8px}.slider .hint{display:none}.tp{top:auto;bottom:118px;left:8px;right:8px;width:auto;max-height:46%}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="tb-name" href="#map">Street henge</a>
+  <span class="tb-k">Data study · 2026</span>
+  <nav class="tb-links"><a href="#essay">About</a><button class="theme" id="theme" aria-label="Toggle dark mode">◐</button><a href="https://doi.org/10.5281/zenodo.24075297">Paper</a><a href="https://github.com/Tristan-Hotham/street-henge">Data and code</a></nav>
+</div>
+
+<div class="mapband">
+  <div id="map" data-fullscreen-map role="application" aria-label="Hand-inked map of the UK: towns, their straight streets coloured by the days the sun sets or rises along them, and a date slider">
+    <div class="nojs" id="nojs">Loading the map. It needs JavaScript and WebGL.</div>
+    <div class="cartouche" id="cartouche">
+      <button class="ct-toggle" id="ctToggle" aria-expanded="true" title="Show the title">Street henge ▾</button>
+      <button class="ct-fold" id="ctFold" title="Fold the title" aria-label="Fold the title">▴</button>
+      <div class="ct-body">
+        <div class="kicker"><b>Data study</b><span>2026</span></div>
+        <h1>Manhattanhenge for every <span class="a">British</span> town</h1>
+        <p class="dek">37,224 straight named streets in 377 towns and cities. Tap a town to see its streets coloured by the season when the sun sets (or rises) straight down them, then slide the date.</p>
+        <div class="byline">Dr Tristan Hotham · Independent researcher · 2026</div>
+      </div>
+    </div>
+    <div class="tp" id="tp" aria-live="polite"><button class="x" id="tpX" aria-label="Close the town panel">×</button><div id="tpBody"></div></div>
+    <div class="ov ov-top">
+      <div class="srch"><input type="search" id="q" placeholder="Find a town or a street" aria-label="Find a town or a street" autocomplete="off"><ul class="sug" id="sug" role="listbox"></ul></div>
+      <div class="chips" id="chips"><button class="chip lyr" id="lyrBtn" aria-expanded="false" aria-controls="lp">Layers</button><button class="chip" id="solChip" aria-pressed="false">Solstice streets only</button></div>
+    </div>
+    <div class="lp" id="lp" role="dialog" aria-label="Map layers">
+      <h4>Streets and towns</h4>
+      <label><input type="checkbox" id="townBox" checked> Towns (tap one to load its streets)</label>
+      <label><input type="checkbox" id="solBox" checked> Solstice-aligned streets, everywhere</label>
+      <label><input type="checkbox" id="riseBox" checked> Include sunrise streets</label>
+      <h5>The inked map</h5>
+      <label><input type="checkbox" data-g="mountains" checked> Ink mountains and hills</label>
+      <label><input type="checkbox" data-g="forests" checked> Forests, marsh and moor</label>
+      <label><input type="checkbox" data-g="rivers" checked> Rivers and lakes</label>
+      <label><input type="checkbox" data-g="sea" checked> Sea shading and ripples</label>
+      <label><input type="checkbox" data-g="names" checked> Place names</label>
+      <label><input type="checkbox" data-g="borders" checked> Borders</label>
+      <label><input type="checkbox" data-g="roads" checked> Roads and streets</label>
+      <label><input type="checkbox" data-g="tint" checked> Watercolour tints</label>
+      <label><input type="checkbox" data-g="hillshade"> Hill shading</label>
+      <label><input type="checkbox" id="modern"> Plain modern map, for finding your way</label>
+    </div>
+    <div class="lgd" id="lgd" aria-live="polite">
+      <button class="lgd-t" id="lgdT" aria-expanded="false">Key ▾</button>
+      <div class="lgd-b">
+        <b>The sun lines up with the street</b>
+        <div class="bar" id="lgdBar"></div>
+        <div class="ends"><span>midwinter</span><span>equinox</span><span>midsummer</span></div>
+        <div class="rs" style="margin-top:6px">Grey: the sun never lines up (the street runs too near north to south). Bright: lined up on the date on the slider.</div>
+      </div>
+    </div>
+    <div class="slider" id="slider">
+      <div class="row"><b id="dLab">21 June</b><input type="range" id="day" min="1" max="365" value="172" aria-label="Day of the year"></div>
+      <div class="ev"><button data-d="172">Midsummer</button><button data-d="355">Midwinter</button><button data-d="79">March equinox</button><button data-d="266">September equinox</button><button id="today">Today</button></div>
+      <div class="hint" id="dHint">Streets lit in red catch the sun on this day.</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="essay">
+<p class="lede" style="margin-top:26px">Twice a year, in late May and mid July, crowds gather on the cross streets of Manhattan to watch the sun set exactly at the end of the street, framed by the towers on either side. New Yorkers call it Manhattanhenge. Every town with straight streets has its own version, on its own dates. So I worked them out for every town and city in the United Kingdom of more than 25,000 people.</p>
+<p>From the OpenStreetMap street map I found every named street with a straight stretch of at least 300 m: 37,224 of them in 377 towns, 15,638 km in all. For each one I worked out where the sun would have to stand to sit on the skyline straight down the street, looking each way, allowing for the hills at the end of the view, and so on which days of the year that happens.</p>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: OpenStreetMap contributors (ODbL) via OpenFreeMap; Wikidata (CC0); AWS Terrain Tiles</div>
+
+<div class="stats">
+  <div class="stat"><b>49%</b><span>of straight streets catch the rising or setting sun on at least one day a year</span></div>
+  <div class="stat"><b>1,072</b><span>line up within 1° with a solstice sunrise or sunset</span></div>
+  <div class="stat"><b>1.01</b><span>times as many as chance would give: no sign of design</span></div>
+  <div class="stat"><b>4.0°</b><span>or more: how far Midsummer Boulevard misses the midsummer sunrise</span></div>
+</div>
+
+<h2><span class="n">01 · The window</span>Where the sun can line up</h2>
+<p>The sun only rises and sets in two arcs of the compass. In the far south of the UK, at 50°N, the midsummer sun sets at 309.1° from north and the midwinter sun at 232.6°; in the far north, at 58°N, the arc widens to 222.7° to 320.1°. A street that runs anywhere near north to south never catches the sun down its length. One that runs across the arc catches it twice a year, on dates either side of a solstice; one that runs at the very edge catches it once, at the solstice itself. 18,405 of the 37,224 straight streets (49%) catch it at least once.</p>
+<div class="figure"><img src="img/sun.png" alt="Line chart: the sunset azimuth swings from about 230 degrees in December to 310 to 320 degrees in June, more widely at 58 degrees north than at 50" loading="lazy" width="1200" height="609"><p class="src">Where the sun sets through the year, over a flat horizon.</p></div>
+
+<h2><span class="n">02 · Solstice streets</span>A thousand streets that line up, by chance</h2>
+<p>1,072 streets lie within 1° of the sunrise or sunset on the longest or shortest day, over their own skyline, and 1,849 within 2°. A street that lines up with the midsummer sunrise at one end usually lines up with the midwinter sunset at the other, as at Stonehenge: 311 do both. The longest true street among them is Bursledon Road in Southampton, 2,995 m dead straight towards the midwinter sunrise; then City Road in Birmingham (1,365 m, midsummer sunrise) and Asquith Avenue in Morley (1,139 m, midsummer sunset).</p>
+<p>But are there more of them than chance would give? Taking every street end and asking how far it looks from the solstice sun, the count within 1° is 1.86% of ends, against 1.83% for the same streets a few degrees either side. There is no spike at the solstice: British streets line up with it about as often as they would if nobody had ever thought about the sun. A few towns have more than their share, St Annes on the Fylde coast (21 street ends against 3.2 expected) and Bournemouth (22 against 6.8), because their grids happen to run that way; nothing suggests the sun was the reason.</p>
+<div class="figure"><img src="img/map.png" alt="Map of the UK with short coloured strokes in towns, blue for streets aligned with midwinter sunrise or sunset and red for midsummer, clustered in London, the Midlands, Lancashire and the Clyde" loading="lazy" width="1200" height="1560"><p class="src">Every street within 1° of a solstice sunrise or sunset, drawn nine times its length.</p></div>
+<div class="figure"><img src="img/chance.png" alt="Bar chart of street ends by their angle from the solstice sun: flat from minus 20 to plus 20 degrees, with no peak at zero" loading="lazy" width="1200" height="591"><p class="src">No peak at zero: streets line up with the solstice as often as chance would give.</p></div>
+<div class="figure"><img src="img/best.png" alt="Bar chart of the twelve longest straight streets aligned with a solstice sunrise or sunset, led by Bursledon Road in Southampton" loading="lazy" width="1200" height="738"><p class="src">The longest henge streets, trunk roads and bypasses left out.</p></div>
+
+<h2><span class="n">03 · Milton Keynes</span>Midsummer Boulevard misses midsummer</h2>
+<p>Milton Keynes is the town where the story is usually told: its central avenue, Midsummer Boulevard, is said to point at the midsummer sunrise. The map says otherwise. The boulevard runs at 55.1° from north. Over its eastern skyline the midsummer sun rises at 50.1° (over a flat horizon it would be 48.7°), so the boulevard misses it by 4.0° to 6.7° along its length. The sun rises straight down Midsummer Boulevard about 24 May and 20 July, a month either side of midsummer. The town's grid as a whole runs at 59.1°, and just 7 of its 233 straight streets line up with a solstice. Maps and surveys can differ by a degree or two, but not by five.</p>
+<p>The planners' own words were more careful than the legend. David Lock, the city centre's planner, said you could tell people the sun rises at the end of it on Midsummer's Day, "which it nearly does"; the chief architect, Stuart Mosscrop, said the first match with the solstice was a coincidence and the grid was then moved slightly to suit it. And on midsummer morning the sun does stand straight down the boulevard, just not at sunrise: it gets there about 36 minutes after the first gleam, 3.6° up. From the low western end by the station, looking up the hill, the land alone rises 1.2° and the trees and buildings on the crest add more, so a watcher there can see the sun come up over the top on the line of the road. Over the open horizon to the east, as from Campbell Park, the midsummer sunrise is well to the left of the axis.</p>
+<div class="figure"><img src="img/mk.png" alt="Map of central Milton Keynes with streets coloured by season; Midsummer Boulevard drawn in black with a red dashed line for midsummer sunrise diverging from it by about five degrees" loading="lazy" width="1200" height="1050"><p class="src">Milton Keynes. Dashed: the boulevard's line and the midsummer sunrise over its skyline.</p></div>
+
+<h2><span class="n">04 · The calendar</span>Every city has its henge days</h2>
+<p>For each town, adding up the metres of street that line up with the sun day by day gives a henge calendar. Where a town has a strong grid, it has clear henge days. Glasgow's grid is turned only 9° from north, so the sun sets straight down its east to west streets in early April and mid September; its best days are 6 April and 7 September, almost level (every street lines up on a pair of days, one each side of the solstice). Edinburgh's New Town grid makes a sunset henge in late February and mid October. Liverpool's best are 24 February and 18 October, London's 12 April and 1 September (sunrises), Manchester's 21 April and 22 August (sunrises). Several of the strongest grids belong to seaside towns laid out square to the shore, Great Yarmouth, Worthing, Southend and Hartlepool, and their streets catch the sun within a fortnight or so of the equinoxes.</p>
+<div class="figure"><img src="img/calendars.png" alt="Six small charts, one per city, of metres of street aligned with sunset above and sunrise below through the year, with peaks in spring and autumn" loading="lazy" width="1200" height="831"><p class="src">Henge calendars: red for sunset, blue for sunrise.</p></div>
+<div class="figure"><img src="img/grids.png" alt="Six rose diagrams of street directions for Glasgow, Edinburgh, Milton Keynes, St Annes, Great Yarmouth and Southend, over shaded arcs where the sun can rise and set" loading="lazy" width="1200" height="617"><p class="src">Each town's street directions against the arcs of sunrise and sunset.</p></div>
+
+<h2><span class="n">05 · How I made this</span>Streets, skylines and the sun</h2>
+<p><b>Towns.</b> Wikidata's towns and cities of 25,000 people or more, 377 after merging suburbs into the town around them, each with a circle sized by its population (from 1.5 km to 22 km for London).</p>
+<p><b>Streets.</b> The named roads in OpenFreeMap's vector tiles of OpenStreetMap (9,077 tiles), joined end to end by name. A straight stretch is one where every point lies within 5.0 m of the line between its ends, at least 300 m long. The two carriageways of a dual road count once (2,919 duplicates removed), and stretches that continue each other across a slight kink are joined (290). Trunk roads, bypasses, bridges and piers (3,026) stay on the map but are left out of the lists of henge streets; every solstice street of 600 m or more was read by name to check.</p>
+<p><b>The sun.</b> Looking along a street from each end, the skyline is the highest angle to the land within 40 km in the AWS Terrain Tiles, allowing for the curve of the Earth and refraction; the median is 0.43°. The sun is lined up when its centre stands on that skyline straight down the street; its declination then fixes the day, from the standard formula for the sun's position. Buildings and trees are not in the terrain, so the real view may be blocked, and the dates can move by a day from year to year.</p>
+
+<details><summary>The longest solstice streets</summary>
+<div class="tw"><table class="words"><tr><th>Street</th><th>Town</th><th class="r">Length</th><th>Sun</th></tr><tr><td>Bursledon Road</td><td>Southampton</td><td class="r">2,995 m</td><td>midwinter sunrise</td></tr><tr><td>City Road</td><td>Birmingham</td><td class="r">1,365 m</td><td>midsummer sunrise, and the opposite solstice</td></tr><tr><td>Asquith Avenue</td><td>Morley</td><td class="r">1,139 m</td><td>midsummer sunset</td></tr><tr><td>Hertford Road</td><td>Welwyn Garden City</td><td class="r">1,115 m</td><td>midwinter sunrise, and the opposite solstice</td></tr><tr><td>Long Cross</td><td>Bristol</td><td class="r">1,100 m</td><td>midwinter sunset, and the opposite solstice</td></tr><tr><td>St Alban's Road</td><td>St Annes</td><td class="r">1,072 m</td><td>midwinter sunset, and the opposite solstice</td></tr><tr><td>Dagenham Avenue</td><td>London</td><td class="r">1,064 m</td><td>midsummer sunrise, and the opposite solstice</td></tr><tr><td>Queensway</td><td>Scunthorpe</td><td class="r">1,041 m</td><td>midwinter sunrise, and the opposite solstice</td></tr><tr><td>Pollokshaws Road</td><td>Glasgow</td><td class="r">1,035 m</td><td>midsummer sunrise, and the opposite solstice</td></tr><tr><td>Winchester Road</td><td>Basingstoke</td><td class="r">1,020 m</td><td>midsummer sunrise, and the opposite solstice</td></tr><tr><td>Topsham Road</td><td>Exeter</td><td class="r">1,011 m</td><td>midsummer sunset</td></tr><tr><td>Fox Street</td><td>Greenock</td><td class="r">959 m</td><td>midsummer sunrise</td></tr><tr><td>Forsyth Street</td><td>Greenock</td><td class="r">959 m</td><td>midsummer sunrise</td></tr><tr><td>Muirhead Avenue East</td><td>Liverpool</td><td class="r">957 m</td><td>midwinter sunset, and the opposite solstice</td></tr><tr><td>Magdalen Road</td><td>London</td><td class="r">956 m</td><td>midwinter sunset, and the opposite solstice</td></tr><tr><td>Farndon Road</td><td>Newark-on-Trent</td><td class="r">948 m</td><td>midwinter sunset, and the opposite solstice</td></tr><tr><td>Lever Causeway</td><td>Bebington</td><td class="r">927 m</td><td>midsummer sunrise</td></tr><tr><td>Chapel House Road</td><td>Nelson</td><td class="r">908 m</td><td>midwinter sunset</td></tr><tr><td>Sycamore Avenue</td><td>Burnley</td><td class="r">898 m</td><td>midsummer sunset</td></tr><tr><td>Longview Drive</td><td>Huyton</td><td class="r">897 m</td><td>midwinter sunrise, and the opposite solstice</td></tr></table></div>
+</details>
+
+<details><summary>Sources and licences</summary>
+<ul class="plain">
+<li>Streets: © OpenStreetMap contributors, Open Database Licence, through OpenFreeMap vector tiles (OpenMapTiles schema). The derived street table is under the ODbL.</li>
+<li>Towns and populations: Wikidata (CC0).</li>
+<li>Terrain: AWS Terrain Tiles (Mapzen terrarium encoding; SRTM and other public sources, see the Tilezen attribution).</li>
+<li>Solar position: Spencer (1971) declination series; refraction: Bennett (1982).</li>
+<li>Midsummer Boulevard: David Lock as quoted from Hill, M. (ed.) (2007) The Story of the Original Central Milton Keynes, Living Archive Milton Keynes; Stuart Mosscrop as quoted by The Parks Trust, "Mysticism in the park" (Campbell Park heritage trail, theparkstrust.com).</li>
+<li>Map: OpenStreetMap contributors (ODbL), vector tiles by OpenFreeMap; the Inked World map style and its data (Natural Earth, RESOLVE Ecoregions 2017 CC BY 4.0, Wikidata CC0), from the ink-map study.</li>
+<li>Fonts: MedievalSharp and the IM Fell types (SIL Open Font License). MapLibre GL JS 4.7.1 (BSD 3-Clause).</li>
+</ul></details>
+
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24075297">Read the paper</a><a href="https://github.com/Tristan-Hotham/street-henge">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/street-henge/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Manhattanhenge for every British town. Zenodo. <a href="https://doi.org/10.5281/zenodo.24075297">10.5281/zenodo.24075297</a></p>
+<p>Code: <a href="https://github.com/Tristan-Hotham/street-henge">github.com/Tristan-Hotham/street-henge</a> (MIT). Text and figures CC BY 4.0; street data derived from OpenStreetMap © OpenStreetMap contributors (ODbL); towns from Wikidata (CC0).</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/curated.js?v=1"></script>
+<script src="js/ink-palette.js?v=1"></script>
+<script src="js/ink-icons.js?v=1"></script>
+<script src="js/ink-houses.js?v=1"></script>
+<script src="js/ink-map.js?v=1"></script>
+<script src="js/ink-extras.js?v=1"></script>
+<script>
+(function () {
+  const qs = new URLSearchParams(location.search);
+  const opts = { workerConfig: { heritage: '', hills: '', places: '' } };
+  if (qs.get('tj')) opts.tilejson = qs.get('tj');
+  const start = qs.get('at') ? qs.get('at').split(',').map(Number) : null;
+  const phone = matchMedia('(max-width:600px)').matches;
+  opts.mapOptions = start ? { center: [start[1], start[0]], zoom: start[2] } : { center: [-3.0, 54.6], zoom: phone ? 4.45 : 5.25 };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const R2D = 180 / Math.PI, D2R = Math.PI / 180, OBL = 23.44;
+  // the sun (as in the analysis): Spencer declination at noon of day d, Bennett refraction
+  function decl(d) { const g = 2 * Math.PI * (d - 1 + 0.5) / 365; return R2D * (0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g) - 0.002697 * Math.cos(3 * g) + 0.00148 * Math.sin(3 * g)); }
+  function refr(h) { h = Math.max(h, -1); return 1 / Math.tan(D2R * (h + 7.31 / (h + 4.4))) / 60; }
+  function azFor(lat, dec, happ, setting) { const h = D2R * (happ - refr(happ)), p = D2R * lat, d = D2R * dec; let c = (Math.sin(d) - Math.sin(p) * Math.sin(h)) / (Math.cos(p) * Math.cos(h)); c = Math.max(-1, Math.min(1, c)); const a = R2D * Math.acos(c); return setting ? 360 - a : a; }
+  function dateOf(d) { const t = new Date(Date.UTC(2026, 0, 1) + (Math.round(d) - 1) * 864e5); return t.getUTCDate() + ' ' + MON[t.getUTCMonth()]; }
+  function days(dec) { const out = []; let prev = decl(1) - dec; for (let x = 1.05; x <= 366; x += 0.05) { const v = decl(x) - dec; if ((v > 0) !== (prev > 0)) out.push(x); prev = v; } return out; }
+  // colour by the declination at which the street lines up: midwinter blue to equinox ochre to midsummer vermilion
+  const DSTOPS = [[-23.5, '#2F4F8C'], [-12, '#5E86B5'], [0, '#C9A35C'], [12, '#DE8A2E'], [23.5, '#A3261B']];
+  function dcol(v) { if (v === null || v === undefined) return '#9A8F7E'; for (let i = 1; i < DSTOPS.length; i++) if (v <= DSTOPS[i][0]) { const [a0, c0] = DSTOPS[i - 1], [a1, c1] = DSTOPS[i]; const t = Math.max(0, (v - a0) / (a1 - a0)); const h = c => [1, 3, 5].map(j => parseInt(c.substr(j, 2), 16)); const x = h(c0), y = h(c1); return 'rgb(' + x.map((q, j) => Math.round(q + (y[j] - q) * t)).join(',') + ')'; } return DSTOPS[DSTOPS.length - 1][1]; }
+  $('lgdBar').style.background = 'linear-gradient(90deg,' + DSTOPS.map(s => s[1] + ' ' + ((s[0] + 23.5) / 47 * 100).toFixed(0) + '%').join(',') + ')';
+  let map = null, T = null, SOL = null, cur = null, day = 172;
+  const state = { rise: true, solOnly: false };
+
+  const ct = $('cartouche');
+  const fold = f => { ct.classList.toggle('folded', f); $('ctToggle').setAttribute('aria-expanded', String(!f)); };
+  if (phone) { fold(true); $('lgd').classList.add('fold'); }
+  $('ctToggle').addEventListener('click', () => fold(!ct.classList.contains('folded')));
+  $('ctFold').addEventListener('click', () => fold(true));
+  $('lgdT').addEventListener('click', () => { const f = $('lgd').classList.toggle('fold'); $('lgdT').setAttribute('aria-expanded', String(!f)); });
+  document.addEventListener('fullscreenchange', () => { if (document.fullscreenElement) fold(true); });
+  $('tpX').addEventListener('click', () => { $('tp').classList.remove('open'); });
+
+  const dataP = Promise.all([fetch('data/towns.json').then(r => r.json()), fetch('data/solstice_streets.json').then(r => r.json())]);
+  InkMap.create('map', opts).then(m => {
+    map = window.__map = m; window.__town = t => openTown(t);
+    $('nojs').remove();
+    const foldAttr = () => { const at = document.querySelector('.maplibregl-ctrl-attrib.maplibregl-compact'); if (at) { at.classList.remove('maplibregl-compact-show'); at.removeAttribute('open'); } };
+    map.once('idle', foldAttr); foldAttr();
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: false }), 'bottom-right');
+    if (InkMap.setWinter) InkMap.setWinter(map, false);
+    ['heritage', 'flight', 'animals', 'farms', 'htowns'].forEach(g => InkMap.setGroup(map, g, false));
+    const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; };
+    const tone = () => InkMap.setSeaTone && InkMap.setSeaTone(map, isDark());
+    tone(); new MutationObserver(tone).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    dataP.then(([t, s]) => { T = t; SOL = s; addLayers(); buildUI(); }).catch(e => console.error('data', e));
+    setupLayers();
+  }).catch(e => { console.error(e); const n = $('nojs'); if (n) n.textContent = 'The map could not load: ' + e.message; });
+
+  function firstSymbol() { const ls = map.getStyle().layers; const l = ls.find(x => x.metadata && x.metadata.group === 'names'); return l ? l.id : undefined; }
+  // one street = [lon1, lat1, lon2, lat2, name, length, bearing, h_fwd, h_back]; each end gets: azimuth, horizon,
+  // declination at which the sun stands there, rise or set
+  function ends(s) {
+    const lat = (s[1] + s[3]) / 2, out = [];
+    for (const [az, h] of [[s[6], s[7]], [(s[6] + 180) % 360, s[8]]]) {
+      const hh = D2R * (h - refr(h)), p = D2R * lat;
+      const dec = R2D * Math.asin(Math.max(-1, Math.min(1, Math.sin(p) * Math.sin(hh) + Math.cos(p) * Math.cos(hh) * Math.cos(D2R * az))));
+      const set = az >= 180;
+      const solOff = Math.min(Math.abs(az - azFor(lat, OBL, h, set)), Math.abs(az - azFor(lat, -OBL, h, set)));
+      out.push({ az, h, dec, set, ok: Math.abs(dec) <= OBL || solOff <= 1, solOff, lat });
+    }
+    return out;
+  }
+  function streetFeature(s, i, src) {
+    const E = ends(s); const use = E.filter(e => e.ok && (state.rise || e.set));
+    const pick = use.find(e => e.set) || use[0];
+    return { type: 'Feature', id: i, geometry: { type: 'LineString', coordinates: [[s[0], s[1]], [s[2], s[3]]] },
+      properties: { c: dcol(pick ? Math.max(-OBL, Math.min(OBL, pick.dec)) : null), sol: E.some(e => e.solOff <= 1 && (state.rise || e.set)) ? 1 : 0, lit: 0, L: s[5], src } };
+  }
+  function addLayers() {
+    map.addSource('htowns', { type: 'geojson', data: { type: 'FeatureCollection', features: T.towns.map((t, i) => ({ type: 'Feature', id: i, geometry: { type: 'Point', coordinates: [t.lon, t.lat] }, properties: { n: t.name, p: t.pop, c: t.peak_dec === null ? '#9A8F7E' : dcol(t.peak_dec) } })) },
+      attribution: 'Streets: <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> (ODbL) via OpenFreeMap; towns: Wikidata (CC0)' });
+    map.addSource('hst', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addSource('hsol', { type: 'geojson', data: { type: 'FeatureCollection', features: SOL.streets.map((s, i) => streetFeature(s, i, 'hsol')) } });
+    const fs = firstSymbol();
+    map.addLayer({ id: 'hsol-glow', type: 'line', source: 'hsol', paint: { 'line-color': ['get', 'c'], 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 2.5, 12, 7], 'line-opacity': 0.25, 'line-blur': 2 } }, fs);
+    map.addLayer({ id: 'hsol', type: 'line', source: 'hsol', layout: { 'line-cap': 'round' }, paint: { 'line-color': ['get', 'c'], 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 1.2, 12, 3, 16, 5] } }, fs);
+    map.addLayer({ id: 'hst-glow', type: 'line', source: 'hst', filter: ['==', ['get', 'lit'], 1], paint: { 'line-color': '#FFB000', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 7, 16, 18], 'line-opacity': 0.55, 'line-blur': 3 } }, fs);
+    map.addLayer({ id: 'hst', type: 'line', source: 'hst', layout: { 'line-cap': 'round' }, paint: { 'line-color': ['get', 'c'], 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.4, 14, 3, 17, 6], 'line-opacity': ['case', ['==', ['get', 'lit'], 1], 1, 0.75] } }, fs);
+    map.addLayer({ id: 'htowns', type: 'circle', source: 'htowns', paint: { 'circle-color': ['get', 'c'], 'circle-stroke-color': '#2B2119', 'circle-stroke-width': 1,
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 4, ['interpolate', ['linear'], ['get', 'p'], 25000, 2.5, 1000000, 9], 10, ['interpolate', ['linear'], ['get', 'p'], 25000, 6, 1000000, 16]],
+      'circle-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0.95, 12, 0.25], 'circle-stroke-opacity': ['interpolate', ['linear'], ['zoom'], 10, 1, 12, 0.3] } });
+    map.addLayer({ id: 'htown-lab', type: 'symbol', source: 'htowns', minzoom: 6.5, maxzoom: 11.5, layout: { 'text-field': ['get', 'n'], 'text-font': ['Ink Italic'], 'text-size': 13, 'text-offset': [0, 1.1], 'text-anchor': 'top' },
+      paint: { 'text-color': '#2B2119', 'text-halo-color': 'rgba(246,238,216,0.95)', 'text-halo-width': 1.5 } });
+    map.on('click', 'htowns', e => openTown(e.features[0].id));
+    map.on('click', 'hst', e => streetPopup(cur.streets[e.features[0].id], e.lngLat));
+    map.on('click', 'hsol', e => streetPopup(SOL.streets[e.features[0].id], e.lngLat, SOL.town[e.features[0].id]));
+    ['htowns', 'hst', 'hsol'].forEach(l => { map.on('mouseenter', l, () => map.getCanvas().style.cursor = 'pointer'); map.on('mouseleave', l, () => map.getCanvas().style.cursor = ''); });
+    setDay(day);
+  }
+  function openTown(i) {
+    const t = T.towns[i];
+    fetch('data/towns/' + t.file).then(r => r.json()).then(d => {
+      cur = d; cur.i = i; fold(true);
+      map.getSource('hst').setData({ type: 'FeatureCollection', features: d.streets.map((s, j) => streetFeature(s, j, 'hst')) });
+      map.fitBounds([[t.lon - t.r_km / 70, t.lat - t.r_km / 111], [t.lon + t.r_km / 70, t.lat + t.r_km / 111]], { duration: 1500, padding: phone ? 10 : { top: 60, left: 340, right: 60, bottom: 110 } });
+      townPanel(t, d); setDay(day);
+    }).catch(e => console.error('town', e));
+  }
+  function townPanel(t, d) {
+    let h = '<h3>' + esc(t.name) + '</h3><div class="m">' + d.streets.length.toLocaleString('en-GB') + ' straight named streets of ' + T.min_len + ' m or more</div>';
+    h += '<canvas id="cal" width="600" height="180" aria-label="Henge calendar: metres of street lined up with sunset and sunrise, day by day"></canvas><div class="m" style="font-size:11px">Henge calendar: metres of street the sun sets (red) or rises (blue) along, each day of the year. Tap to set the date.</div>';
+    if (t.grid_dates && t.grid_dates.length) h += '<p>The main grid: ' + esc(t.grid_txt) + '</p>';
+    if (t.peak_day) h += '<p>Best henge day: <a data-day="' + Math.round(t.peak_day) + '">' + dateOf(t.peak_day) + '</a>, when the sun ' + (t.peak_kind === 'set' ? 'sets' : 'rises') + ' along ' + t.peak_m.toLocaleString('en-GB') + ' m of street.</p>';
+    if (t.best && t.best.length) { h += '<b>Longest henge streets</b><ol>' + t.best.map(b => '<li><a data-s="' + b[0] + '">' + esc(b[1]) + '</a>, ' + b[2] + ' m: ' + esc(b[3]) + '</li>').join('') + '</ol>'; }
+    $('tpBody').innerHTML = h; $('tp').classList.add('open');
+    drawCal(t);
+    $('tpBody').querySelectorAll('a[data-day]').forEach(a => a.addEventListener('click', () => setDay(+a.dataset.day)));
+    $('tpBody').querySelectorAll('a[data-s]').forEach(a => a.addEventListener('click', () => { const s = cur.streets[+a.dataset.s]; map.flyTo({ center: [(s[0] + s[2]) / 2, (s[1] + s[3]) / 2], zoom: 15.5, duration: 1500 }); map.once('moveend', () => streetPopup(s)); }));
+    const cv = $('cal'); cv.addEventListener('click', e => { const r = cv.getBoundingClientRect(); setDay(Math.max(1, Math.min(365, Math.round((e.clientX - r.left) / r.width * 365)))); });
+  }
+  function drawCal(t) {
+    const cv = $('cal'); if (!cv || !cur) return; const g = cv.getContext('2d'), W = cv.width, H = cv.height, mid = H / 2;
+    const set = new Array(366).fill(0), rise = new Array(366).fill(0);
+    for (const s of cur.streets) for (const e of ends(s)) { if (!e.ok) continue; const ds = Math.abs(e.dec) <= OBL ? days(e.dec) : [e.dec > 0 ? 172 : 355]; for (const x of ds) (e.set ? set : rise)[Math.round(x) % 366] += s[5]; }
+    const sm = a => a.map((_, i) => (a[(i + 365) % 366] + 2 * a[i] + a[(i + 1) % 366]) / 4);
+    const S = sm(set), Rr = sm(rise), mx = Math.max(1, ...S, ...Rr);
+    g.clearRect(0, 0, W, H); g.fillStyle = '#FBF5E4'; g.fillRect(0, 0, W, H);
+    g.strokeStyle = '#E2D3AE'; g.beginPath(); for (let m = 0; m < 12; m++) { const x = (Date.UTC(2026, m, 1) - Date.UTC(2026, 0, 1)) / 864e5 / 365 * W; g.moveTo(x, 0); g.lineTo(x, H); } g.stroke();
+    for (let i = 1; i < 366; i++) { const x = i / 365 * W; g.fillStyle = '#A3261B'; g.fillRect(x, mid - S[i] / mx * (mid - 12), W / 365 + 0.5, S[i] / mx * (mid - 12)); if (state.rise) { g.fillStyle = '#2F5D8C'; g.fillRect(x, mid, W / 365 + 0.5, Rr[i] / mx * (mid - 12)); } }
+    g.fillStyle = '#6E604E'; g.font = '16px IBM Plex Mono, monospace'; ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'].forEach((c, m) => g.fillText(c, (Date.UTC(2026, m, 15) - Date.UTC(2026, 0, 1)) / 864e5 / 365 * W - 5, H - 3));
+    const x = day / 365 * W; g.strokeStyle = '#2B2119'; g.lineWidth = 2; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); g.lineWidth = 1;
+  }
+  function setDay(d) {
+    day = d; $('day').value = d; $('dLab').textContent = dateOf(d);
+    const dec = decl(d); let n = 0;
+    const lit = (s) => ends(s).some(e => (state.rise || e.set) && Math.abs(e.az - azFor(e.lat, dec, e.h, e.set)) <= 0.75);
+    if (cur) { const src = map.getSource('hst'); const fs = cur.streets.map((s, j) => { const f = streetFeature(s, j, 'hst'); f.properties.lit = lit(s) ? 1 : 0; n += f.properties.lit; return f; }); src.setData({ type: 'FeatureCollection', features: fs }); drawCal(); }
+    $('dHint').textContent = cur ? n + ' streets in ' + T.towns[cur.i].name + ' catch the ' + (state.rise ? 'rising or setting' : 'setting') + ' sun on ' + dateOf(d) + ' (within 0.75°).' : 'Tap a town, then slide the date: streets that catch the sun light up.';
+    document.querySelectorAll('.slider [data-d]').forEach(b => b.classList.toggle('on', +b.dataset.d === d));
+  }
+  function streetPopup(s, ll, town) {
+    const E = ends(s); let h = '<b class="t">' + esc(s[4]) + '</b><div class="m">' + (town ? esc(town) + ' · ' : '') + s[5] + ' m straight, bearing ' + s[6].toFixed(1) + '° and ' + ((s[6] + 180) % 360).toFixed(1) + '°</div>';
+    for (const e of E) {
+      const dir = e.az < 22.5 || e.az >= 337.5 ? 'north' : ['north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west'][Math.floor((e.az - 22.5) / 45)];
+      h += '<div style="margin-top:5px"><b>Looking ' + dir + ' (' + e.az.toFixed(1) + '°)</b>, skyline ' + e.h.toFixed(1) + '°: ';
+      if (Math.abs(e.dec) <= OBL) { const ds = days(e.dec).map(dateOf); h += 'the sun ' + (e.set ? 'sets' : 'rises') + ' straight down it on ' + ds.join(' and ') + '.'; }
+      else if (e.solOff <= 1) h += 'within ' + e.solOff.toFixed(1) + '° of the ' + (e.dec > 0 ? 'midsummer' : 'midwinter') + ' ' + (e.set ? 'sunset' : 'sunrise') + ': a solstice henge.';
+      else h += 'the sun never ' + (e.set ? 'sets' : 'rises') + ' this way.';
+      if (e.solOff <= 2 && Math.abs(e.dec) <= OBL) h += ' <span class="m">(' + e.solOff.toFixed(1) + '° from the solstice ' + (e.set ? 'sunset' : 'sunrise') + ')</span>';
+      h += '</div>';
+    }
+    h += '<div class="m" style="margin-top:4px">Skyline from the terrain only; buildings and trees can hide the sun.</div>';
+    const at = ll || [(s[0] + s[2]) / 2, (s[1] + s[3]) / 2];
+    new maplibregl.Popup({ maxWidth: '310px' }).setLngLat(at).setHTML(h).addTo(map);
+  }
+  function buildUI() {
+    $('day').addEventListener('input', e => setDay(+e.target.value));
+    document.querySelectorAll('.slider [data-d]').forEach(b => b.addEventListener('click', () => setDay(+b.dataset.d)));
+    $('today').addEventListener('click', () => { const t = new Date(); setDay(Math.min(365, Math.floor((Date.UTC(2026, t.getMonth(), t.getDate()) - Date.UTC(2026, 0, 1)) / 864e5) + 1)); });
+    $('townBox').addEventListener('change', e => ['htowns', 'htown-lab'].forEach(l => map.setLayoutProperty(l, 'visibility', e.target.checked ? 'visible' : 'none')));
+    $('solBox').addEventListener('change', e => ['hsol', 'hsol-glow'].forEach(l => map.setLayoutProperty(l, 'visibility', e.target.checked ? 'visible' : 'none')));
+    $('riseBox').addEventListener('change', e => { state.rise = e.target.checked; map.getSource('hsol').setData({ type: 'FeatureCollection', features: SOL.streets.map((s, i) => streetFeature(s, i, 'hsol')) }); setDay(day); });
+    const sc = $('solChip'); sc.addEventListener('click', () => { state.solOnly = !state.solOnly; sc.classList.toggle('on', state.solOnly); sc.setAttribute('aria-pressed', String(state.solOnly)); map.setFilter('hst', state.solOnly ? ['==', ['get', 'hsol'], 1] : null); map.setFilter('hst-glow', state.solOnly ? ['all', ['==', ['get', 'hsol'], 1], ['==', ['get', 'lit'], 1]] : ['==', ['get', 'lit'], 1]); });
+    if (qs.get('town')) { const i = T.towns.findIndex(t => t.name === qs.get('town')); if (i >= 0) openTown(i); }
+    setupSearch();
+  }
+  function setupLayers() {
+    const lp = $('lp'), btn = $('lyrBtn');
+    btn.addEventListener('click', e => { e.stopPropagation(); const o = lp.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', e => { if (!lp.contains(e.target) && e.target !== btn) { lp.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+    const boxes = [...lp.querySelectorAll('input[data-g]')], modern = $('modern');
+    const NAME_LAYERS = map.getStyle().layers.filter(l => l.type === 'symbol' && l.metadata && ['names', 'rivers'].includes(l.metadata.group)).map(l => l.id);
+    const saved = {}; NAME_LAYERS.forEach(id => saved[id] = { c: map.getPaintProperty(id, 'text-color'), h: map.getPaintProperty(id, 'text-halo-color') });
+    function apply() {
+      const m = modern.checked;
+      boxes.forEach(b => { const g = b.dataset.g; const inkOnly = ['mountains', 'forests', 'sea', 'tint'].includes(g); InkMap.setGroup(map, g, b.checked && !(m && inkOnly)); });
+      InkMap.setGroup(map, 'paper', !m); InkMap.setGroup(map, 'modern', m); InkMap.setGroup(map, 'coast', !m);
+      NAME_LAYERS.forEach(id => { map.setPaintProperty(id, 'text-color', m ? '#333333' : saved[id].c); map.setPaintProperty(id, 'text-halo-color', m ? 'rgba(255,255,255,0.9)' : saved[id].h); });
+    }
+    boxes.forEach(b => b.addEventListener('change', apply)); modern.addEventListener('change', apply);
+  }
+  function setupSearch() {
+    const q = $('q'), sug = $('sug');
+    const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    let sel = -1, items = [];
+    const tidx = T.towns.map((t, i) => [norm(t.name), i]);
+    const sidx = SOL.streets.map((s, i) => [norm(s[4]), i]);
+    function show(list) { items = list; sel = -1; sug.innerHTML = list.map((it, k) => '<li role="option" data-k="' + k + '">' + esc(it.t) + ' <span>' + esc(it.s) + '</span></li>').join(''); sug.style.display = list.length ? 'block' : 'none'; }
+    function go(it) { sug.style.display = 'none'; q.value = it.t; if (it.town !== undefined) openTown(it.town); else { const s = SOL.streets[it.sol]; map.flyTo({ center: [(s[0] + s[2]) / 2, (s[1] + s[3]) / 2], zoom: 15.5, duration: 1600 }); map.once('moveend', () => streetPopup(s, null, SOL.town[it.sol])); } }
+    q.addEventListener('input', () => {
+      const v = norm(q.value.trim()); if (v.length < 2) { show([]); return; }
+      const out = [];
+      for (const [n, i] of tidx) if (n.startsWith(v)) { out.push({ t: T.towns[i].name, s: 'town', town: i }); if (out.length >= 6) break; }
+      for (const [n, i] of sidx) if (n.startsWith(v) || (v.length > 3 && n.includes(v))) { out.push({ t: SOL.streets[i][4], s: 'solstice street, ' + SOL.town[i], sol: i }); if (out.length >= 14) break; }
+      show(out);
+    });
+    q.addEventListener('keydown', e => {
+      const lis = [...sug.children];
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, Math.min(lis.length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1))); lis.forEach((l, k) => l.setAttribute('aria-selected', k === sel)); }
+      else if (e.key === 'Enter' && items.length) { e.preventDefault(); go(items[Math.max(sel, 0)]); }
+      else if (e.key === 'Escape') sug.style.display = 'none';
+    });
+    sug.addEventListener('click', e => { const li = e.target.closest('li'); if (li) go(items[+li.dataset.k]); });
+  }
+  $('theme').addEventListener('click', () => { const r = document.documentElement; const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = dark ? 'light' : 'dark'; });
+})();
+</script>
+<!-- map-fullscreen v1 -->
+<style id="mfs-style">
+.mfs-btn{position:absolute;top:10px;right:10px;z-index:1001;width:34px;height:34px;border:2px solid rgba(0,0,0,.25);border-radius:4px;background:#fff;color:#222;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.mfs-btn:hover{background:#f2f2f2}
+.mfs-btn svg{width:18px;height:18px}
+.mfs-host.mfs-btn-left .mfs-btn{right:auto;left:54px}
+.mfs-fake{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;z-index:100000!important;border-radius:0!important}
+html.mfs-lock,html.mfs-lock body{overflow:hidden!important}
+:fullscreen.mfs-host{width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;margin:0!important;border-radius:0!important}
+</style>
+<script id="mfs-script">
+(function(){
+  var ICON_OPEN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+  var ICON_CLOSE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
+  function poke(){setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);setTimeout(function(){window.dispatchEvent(new Event('resize'));},400);}
+  function realFS(){return document.fullscreenElement||document.webkitFullscreenElement;}
+  function add(el){
+    if(el.__mfs)return; el.__mfs=1;
+    var cs=getComputedStyle(el); if(cs.position==='static')el.style.position='relative';
+    el.classList.add('mfs-host');
+    // avoid clashing with a top-right Leaflet control (e.g. "Map layers")
+    var tr=el.querySelector('.leaflet-top.leaflet-right');
+    if(tr&&tr.children.length){ el.classList.add('mfs-btn-left'); }
+    var b=document.createElement('button'); b.type='button'; b.className='mfs-btn';
+    b.title='Full screen map'; b.setAttribute('aria-label','Full screen map'); b.innerHTML=ICON_OPEN;
+    ['click','dblclick','mousedown','touchstart','wheel'].forEach(function(t){b.addEventListener(t,function(e){e.stopPropagation();},{passive:t!=='click'});});
+    function setIcon(on){b.innerHTML=on?ICON_CLOSE:ICON_OPEN;b.title=on?'Exit full screen':'Full screen map';b.setAttribute('aria-label',b.title);}
+    function exitFake(){el.classList.remove('mfs-fake');document.documentElement.classList.remove('mfs-lock');setIcon(false);poke();}
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      if(el.classList.contains('mfs-fake')){exitFake();return;}
+      if(realFS()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+      var req=el.requestFullscreen||el.webkitRequestFullscreen;
+      if(req){ try{ var p=req.call(el); if(p&&p.catch)p.catch(function(){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();}); }catch(err){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();} }
+      else { el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke(); }
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.classList.contains('mfs-fake'))exitFake();});
+    ['fullscreenchange','webkitfullscreenchange'].forEach(function(t){document.addEventListener(t,function(){setIcon(realFS()===el);poke();});});
+    el.appendChild(b);
+  }
+  function scan(){
+    var els=document.querySelectorAll('[data-fullscreen-map], .leaflet-container, .maplibregl-map, .mapboxgl-map');
+    els.forEach(function(el){
+      if(el.closest('.mfs-host')&&!el.classList.contains('mfs-host'))return;
+      var r=el.getBoundingClientRect(); if(r.width<200||r.height<150)return;
+      add(el);
+    });
+  }
+  function start(){scan(); var n=0; var t=setInterval(function(){scan(); if(++n>20)clearInterval(t);},500);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
+<!-- /map-fullscreen -->
+
+<script src="https://maps.tristanhotham.com/assets/site-nav.js" defer></script>
+</body>
+</html>
