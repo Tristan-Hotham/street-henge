@@ -201,7 +201,7 @@ table.words td.r,table.words th.r{text-align:right}
       <label><input type="checkbox" data-g="roads" checked> Roads and streets</label>
       <label><input type="checkbox" data-g="tint" checked> Watercolour tints</label>
       <label><input type="checkbox" data-g="hillshade"> Hill shading</label>
-      <label><input type="checkbox" id="modern"> Plain modern map, for finding your way</label>
+      <label><input type="checkbox" id="modern" checked> Plain modern map, for finding your way</label>
     </div>
     <div class="lgd" id="lgd" aria-live="polite">
       <button class="lgd-t" id="lgdT" aria-expanded="false">Key ▾</button>
@@ -462,7 +462,7 @@ table.words td.r,table.words th.r{text-align:right}
       InkMap.setGroup(map, 'paper', !m); InkMap.setGroup(map, 'modern', m); InkMap.setGroup(map, 'coast', !m);
       NAME_LAYERS.forEach(id => { map.setPaintProperty(id, 'text-color', m ? '#333333' : saved[id].c); map.setPaintProperty(id, 'text-halo-color', m ? 'rgba(255,255,255,0.9)' : saved[id].h); });
     }
-    boxes.forEach(b => b.addEventListener('change', apply)); modern.addEventListener('change', apply);
+    boxes.forEach(b => b.addEventListener('change', apply)); modern.addEventListener('change', apply); apply();
   }
   function setupSearch() {
     const q = $('q'), sug = $('sug');
