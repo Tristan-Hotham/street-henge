@@ -1,0 +1,920 @@
+{
+ "n": {
+  "towns": 377,
+  "tiles": 9077,
+  "sections": 37224,
+  "km": 15638,
+  "before_dedupe": 40433,
+  "dual_dropped": 2919,
+  "joins": 290,
+  "roads": 3026,
+  "streets": 34198,
+  "median_len": 372,
+  "longest": 2995,
+  "over_1km": 421,
+  "min_pop": 25000,
+  "min_len": 300,
+  "tol": 5.0,
+  "by_cls": {
+   "minor": 20332,
+   "tertiary": 6448,
+   "primary": 4495,
+   "trunk": 2863,
+   "secondary": 2497,
+   "service": 499,
+   "path": 86,
+   "busway": 4
+  },
+  "with_henge": 18405,
+  "sol1": 1072,
+  "sol2": 1849,
+  "eq1": 922,
+  "sol1_streets": 983,
+  "both_ends_solstice": 311
+ },
+ "with_henge_pc": 49.4,
+ "chance": {
+  "ends": 74448,
+  "ends_sol1": 1383,
+  "sol1_pc": 1.86,
+  "expected_pc": 1.83,
+  "ratio": 1.01,
+  "p": 0.313
+ },
+ "offset_hist": {
+  "edges": [
+   -20.0,
+   -19.0,
+   -18.0,
+   -17.0,
+   -16.0,
+   -15.0,
+   -14.0,
+   -13.0,
+   -12.0,
+   -11.0,
+   -10.0,
+   -9.0,
+   -8.0,
+   -7.0,
+   -6.0,
+   -5.0,
+   -4.0,
+   -3.0,
+   -2.0,
+   -1.0,
+   0.0,
+   1.0,
+   2.0,
+   3.0,
+   4.0,
+   5.0,
+   6.0,
+   7.0,
+   8.0,
+   9.0,
+   10.0,
+   11.0,
+   12.0,
+   13.0,
+   14.0,
+   15.0,
+   16.0,
+   17.0,
+   18.0,
+   19.0,
+   20.0
+  ],
+  "counts": [
+   694,
+   691,
+   684,
+   710,
+   728,
+   681,
+   592,
+   710,
+   690,
+   639,
+   636,
+   651,
+   670,
+   682,
+   646,
+   667,
+   619,
+   685,
+   695,
+   671,
+   712,
+   692,
+   729,
+   697,
+   689,
+   736,
+   674,
+   694,
+   715,
+   712,
+   741,
+   712,
+   680,
+   773,
+   730,
+   810,
+   811,
+   863,
+   855,
+   869
+  ]
+ },
+ "sol1_by_kind": {
+  "mw_set": 380,
+  "ms_rise": 368,
+  "ms_set": 325,
+  "mw_rise": 310
+ },
+ "best_solstice": [
+  {
+   "town": "Southampton",
+   "name": "Bursledon Road",
+   "cls": "primary",
+   "length": 2995,
+   "bearing": 127.8,
+   "event": "midwinter sunrise",
+   "off": 0.53,
+   "az": 127.8,
+   "h": 0.05,
+   "both": false,
+   "lon": -1.33886,
+   "lat": 50.90498
+  },
+  {
+   "town": "Birmingham",
+   "name": "City Road",
+   "cls": "primary",
+   "length": 1365,
+   "bearing": 47.9,
+   "event": "midsummer sunrise",
+   "off": 0.08,
+   "az": 47.9,
+   "h": -0.19,
+   "both": true,
+   "lon": -1.94809,
+   "lat": 52.48205
+  },
+  {
+   "town": "Morley",
+   "name": "Asquith Avenue",
+   "cls": "secondary",
+   "length": 1139,
+   "bearing": 132.7,
+   "event": "midsummer sunset",
+   "off": 0.94,
+   "az": 312.7,
+   "h": 0.71,
+   "both": false,
+   "lon": -1.61348,
+   "lat": 53.75326
+  },
+  {
+   "town": "Welwyn Garden City",
+   "name": "Hertford Road",
+   "cls": "tertiary",
+   "length": 1115,
+   "bearing": 129.6,
+   "event": "midwinter sunrise",
+   "off": 0.12,
+   "az": 129.6,
+   "h": 0.2,
+   "both": true,
+   "lon": -0.18374,
+   "lat": 51.81515
+  },
+  {
+   "town": "Bristol",
+   "name": "Long Cross",
+   "cls": "tertiary",
+   "length": 1100,
+   "bearing": 50.0,
+   "event": "midwinter sunset",
+   "off": 0.4,
+   "az": 230.0,
+   "h": 0.86,
+   "both": true,
+   "lon": -2.66585,
+   "lat": 51.4986
+  },
+  {
+   "town": "St Annes",
+   "name": "St Alban's Road",
+   "cls": "minor",
+   "length": 1072,
+   "bearing": 48.9,
+   "event": "midwinter sunset",
+   "off": 0.35,
+   "az": 228.9,
+   "h": 0.09,
+   "both": true,
+   "lon": -3.02101,
+   "lat": 53.75539
+  },
+  {
+   "town": "London",
+   "name": "Dagenham Avenue",
+   "cls": "minor",
+   "length": 1064,
+   "bearing": 50.1,
+   "event": "midsummer sunrise",
+   "off": 0.15,
+   "az": 50.1,
+   "h": 0.32,
+   "both": true,
+   "lon": 0.14227,
+   "lat": 51.53716
+  },
+  {
+   "town": "Scunthorpe",
+   "name": "Queensway",
+   "cls": "primary",
+   "length": 1041,
+   "bearing": 131.4,
+   "event": "midwinter sunrise",
+   "off": 0.08,
+   "az": 131.4,
+   "h": 0.2,
+   "both": true,
+   "lon": -0.64312,
+   "lat": 53.57461
+  },
+  {
+   "town": "Glasgow",
+   "name": "Pollokshaws Road",
+   "cls": "secondary",
+   "length": 1035,
+   "bearing": 45.0,
+   "event": "midsummer sunrise",
+   "off": 0.29,
+   "az": 45.0,
+   "h": 0.39,
+   "both": true,
+   "lon": -4.27502,
+   "lat": 55.83378
+  },
+  {
+   "town": "Basingstoke",
+   "name": "Winchester Road",
+   "cls": "primary",
+   "length": 1020,
+   "bearing": 49.2,
+   "event": "midsummer sunrise",
+   "off": 0.01,
+   "az": 49.2,
+   "h": -0.2,
+   "both": true,
+   "lon": -1.12615,
+   "lat": 51.2449
+  },
+  {
+   "town": "Exeter",
+   "name": "Topsham Road",
+   "cls": "minor",
+   "length": 1011,
+   "bearing": 127.2,
+   "event": "midsummer sunset",
+   "off": 0.68,
+   "az": 307.2,
+   "h": 1.05,
+   "both": false,
+   "lon": -3.50947,
+   "lat": 50.70904
+  },
+  {
+   "town": "Greenock",
+   "name": "Fox Street",
+   "cls": "minor",
+   "length": 959,
+   "bearing": 45.3,
+   "event": "midsummer sunrise",
+   "off": 0.04,
+   "az": 45.3,
+   "h": 0.76,
+   "both": false,
+   "lon": -4.77572,
+   "lat": 55.95543
+  },
+  {
+   "town": "Greenock",
+   "name": "Forsyth Street",
+   "cls": "minor",
+   "length": 959,
+   "bearing": 45.6,
+   "event": "midsummer sunrise",
+   "off": 0.51,
+   "az": 45.6,
+   "h": 1.08,
+   "both": false,
+   "lon": -4.77357,
+   "lat": 55.95384
+  },
+  {
+   "town": "Liverpool",
+   "name": "Muirhead Avenue East",
+   "cls": "tertiary",
+   "length": 957,
+   "bearing": 48.8,
+   "event": "midwinter sunset",
+   "off": 0.82,
+   "az": 228.8,
+   "h": 0.52,
+   "both": true,
+   "lon": -2.91162,
+   "lat": 53.4393
+  },
+  {
+   "town": "London",
+   "name": "Magdalen Road",
+   "cls": "tertiary",
+   "length": 956,
+   "bearing": 50.7,
+   "event": "midwinter sunset",
+   "off": 0.1,
+   "az": 230.7,
+   "h": 0.33,
+   "both": true,
+   "lon": -0.18223,
+   "lat": 51.44443
+  },
+  {
+   "town": "Newark-on-Trent",
+   "name": "Farndon Road",
+   "cls": "secondary",
+   "length": 948,
+   "bearing": 48.6,
+   "event": "midwinter sunset",
+   "off": 0.28,
+   "az": 228.6,
+   "h": 0.34,
+   "both": true,
+   "lon": -0.82935,
+   "lat": 53.06741
+  },
+  {
+   "town": "Bebington",
+   "name": "Lever Causeway",
+   "cls": "minor",
+   "length": 927,
+   "bearing": 49.6,
+   "event": "midsummer sunrise",
+   "off": 0.71,
+   "az": 49.6,
+   "h": 0.81,
+   "both": false,
+   "lon": -3.03755,
+   "lat": 53.35981
+  },
+  {
+   "town": "Nelson",
+   "name": "Chapel House Road",
+   "cls": "minor",
+   "length": 908,
+   "bearing": 41.3,
+   "event": "midwinter sunset",
+   "off": 0.74,
+   "az": 221.3,
+   "h": 3.06,
+   "both": false,
+   "lon": -2.21116,
+   "lat": 53.83116
+  },
+  {
+   "town": "Burnley",
+   "name": "Sycamore Avenue",
+   "cls": "minor",
+   "length": 898,
+   "bearing": 131.4,
+   "event": "midsummer sunset",
+   "off": 0.25,
+   "az": 311.4,
+   "h": 1.03,
+   "both": false,
+   "lon": -2.27776,
+   "lat": 53.79257
+  },
+  {
+   "town": "Huyton",
+   "name": "Longview Drive",
+   "cls": "tertiary",
+   "length": 897,
+   "bearing": 132.2,
+   "event": "midwinter sunrise",
+   "off": 0.23,
+   "az": 132.2,
+   "h": 0.53,
+   "both": true,
+   "lon": -2.82649,
+   "lat": 53.41581
+  }
+ ],
+ "best_solstice_roads": [
+  {
+   "town": "Huntingdon",
+   "name": "Spittals Way",
+   "length": 1544,
+   "why": "trunk road"
+  },
+  {
+   "town": "Norwich",
+   "name": "Norwich Southern Bypass",
+   "length": 1378,
+   "why": "trunk road"
+  },
+  {
+   "town": "London",
+   "name": "North Circular Road",
+   "length": 1133,
+   "why": "trunk road"
+  },
+  {
+   "town": "Birmingham",
+   "name": "Chester Road",
+   "length": 1105,
+   "why": "trunk road"
+  },
+  {
+   "town": "Brighton and Hove",
+   "name": "Brighton & Hove Bypass",
+   "length": 926,
+   "why": "trunk road"
+  },
+  {
+   "town": "Inverness",
+   "name": "Kessock Bridge",
+   "length": 922,
+   "why": "trunk road"
+  }
+ ],
+ "longest_any": [
+  {
+   "town": "Southampton",
+   "name": "Bursledon Road",
+   "length": 2995,
+   "bearing": 127.8
+  },
+  {
+   "town": "Sheffield",
+   "name": "Kirk Edge Road",
+   "length": 2194,
+   "bearing": 93.4
+  },
+  {
+   "town": "Manchester",
+   "name": "Stretford Road",
+   "length": 2146,
+   "bearing": 72.1
+  },
+  {
+   "town": "High Wycombe",
+   "name": "West Wycombe Road",
+   "length": 2075,
+   "bearing": 116.1
+  },
+  {
+   "town": "Brighton and Hove",
+   "name": "New Church Road",
+   "length": 2068,
+   "bearing": 103.2
+  },
+  {
+   "town": "Glasgow",
+   "name": "Edinburgh Road",
+   "length": 1947,
+   "bearing": 113.1
+  },
+  {
+   "town": "Edinburgh",
+   "name": "Ferry Road",
+   "length": 1845,
+   "bearing": 75.3
+  },
+  {
+   "town": "Birmingham",
+   "name": "Kings Road",
+   "length": 1726,
+   "bearing": 107.6
+  },
+  {
+   "town": "Gloucester",
+   "name": "Hucclecote Road",
+   "length": 1724,
+   "bearing": 118.9
+  },
+  {
+   "town": "Guiseley",
+   "name": "York Gate",
+   "length": 1724,
+   "bearing": 89.7
+  }
+ ],
+ "midsummer_boulevard": {
+  "n_sections": 2,
+  "km": 1.26,
+  "longest": 807,
+  "bearing": 55.1,
+  "sun_az_ms_rise": 50.1,
+  "off_min": 4.0,
+  "off_max": 6.7,
+  "h_min": -0.1,
+  "h_max": 1.2,
+  "day1": 144,
+  "day2": 201,
+  "date1": "24 May",
+  "date2": "20 July",
+  "flat_az": 48.7,
+  "flat_az_limb": 48.2,
+  "alt_on_axis": 3.6,
+  "min_after_gleam": 36,
+  "h_west_end": 1.2
+ },
+ "design_test": {
+  "towns_tested": 168,
+  "significant_bonf": 3,
+  "top": [
+   {
+    "town": "St Annes",
+    "n": 54,
+    "sol1": 21,
+    "expected": 3.2,
+    "p": 0.0,
+    "p_bonf": 0.0
+   },
+   {
+    "town": "Bournemouth",
+    "n": 229,
+    "sol1": 22,
+    "expected": 6.8,
+    "p": 0.0,
+    "p_bonf": 0.0004
+   },
+   {
+    "town": "Basingstoke",
+    "n": 95,
+    "sol1": 13,
+    "expected": 3.7,
+    "p": 0.0001,
+    "p_bonf": 0.0161
+   },
+   {
+    "town": "St Helens",
+    "n": 165,
+    "sol1": 15,
+    "expected": 5.5,
+    "p": 0.0005,
+    "p_bonf": 0.0881
+   },
+   {
+    "town": "Lincoln",
+    "n": 74,
+    "sol1": 6,
+    "expected": 1.0,
+    "p": 0.0006,
+    "p_bonf": 0.093
+   },
+   {
+    "town": "Crewe",
+    "n": 81,
+    "sol1": 8,
+    "expected": 2.0,
+    "p": 0.001,
+    "p_bonf": 0.1669
+   },
+   {
+    "town": "Scunthorpe",
+    "n": 121,
+    "sol1": 5,
+    "expected": 0.8,
+    "p": 0.0016,
+    "p_bonf": 0.275
+   },
+   {
+    "town": "Kingston upon Hull",
+    "n": 352,
+    "sol1": 18,
+    "expected": 8.2,
+    "p": 0.0019,
+    "p_bonf": 0.3116
+   }
+  ]
+ },
+ "towns_with_sol1": 256,
+ "cities": {
+  "London": {
+   "n": 6349,
+   "km": 2634.1,
+   "sol1": 151,
+   "grid": 78.7,
+   "grid_str": 0.185,
+   "peak_date": "12 April",
+   "peak_kind": "rise",
+   "peak_m": 16646,
+   "peak2_date": "1 September",
+   "peak2_m": 16221,
+   "peak2_pc": 97,
+   "grid_txt": "streets run at 79° and 169° from north (grid strength 0.19); the sun sets along them on 3 Mar and 11 Oct"
+  },
+  "Birmingham": {
+   "n": 1370,
+   "km": 575.4,
+   "sol1": 41,
+   "grid": 7.0,
+   "grid_str": 0.042,
+   "peak_date": "18 March",
+   "peak_kind": "set",
+   "peak_m": 3127,
+   "peak2_date": "22 September",
+   "peak2_m": 3084,
+   "peak2_pc": 99,
+   "grid_txt": "streets run at 7° and 97° from north (grid strength 0.04); the sun sets along them on 1 Apr and 12 Sep"
+  },
+  "Glasgow": {
+   "n": 968,
+   "km": 413.7,
+   "sol1": 14,
+   "grid": 8.7,
+   "grid_str": 0.336,
+   "peak_date": "6 April",
+   "peak_kind": "set",
+   "peak_m": 4798,
+   "peak2_date": "7 September",
+   "peak2_m": 4689,
+   "peak2_pc": 98,
+   "grid_txt": "streets run at 9° and 99° from north (grid strength 0.34); the sun sets along them on 2 Apr and 11 Sep"
+  },
+  "Manchester": {
+   "n": 741,
+   "km": 333.0,
+   "sol1": 16,
+   "grid": 85.6,
+   "grid_str": 0.181,
+   "peak_date": "21 April",
+   "peak_kind": "rise",
+   "peak_m": 2798,
+   "peak2_date": "22 August",
+   "peak2_m": 2743,
+   "peak2_pc": 98,
+   "grid_txt": "streets run at 86° and 176° from north (grid strength 0.18); the sun sets along them on 14 Mar and 30 Sep"
+  },
+  "Leeds": {
+   "n": 575,
+   "km": 241.6,
+   "sol1": 15,
+   "grid": 6.1,
+   "grid_str": 0.127,
+   "peak_date": "8 March",
+   "peak_kind": "rise",
+   "peak_m": 2175,
+   "peak2_date": "6 October",
+   "peak2_m": 2175,
+   "peak2_pc": 100,
+   "grid_txt": "streets run at 6° and 96° from north (grid strength 0.13); the sun sets along them on 30 Mar and 14 Sep"
+  },
+  "Liverpool": {
+   "n": 870,
+   "km": 375.9,
+   "sol1": 27,
+   "grid": 67.5,
+   "grid_str": 0.244,
+   "peak_date": "24 February",
+   "peak_kind": "set",
+   "peak_m": 3793,
+   "peak2_date": "18 October",
+   "peak2_m": 3742,
+   "peak2_pc": 99,
+   "grid_txt": "streets run at 68° and 158° from north (grid strength 0.24); the sun sets along them on 14 Feb and 28 Oct"
+  },
+  "Edinburgh": {
+   "n": 518,
+   "km": 216.3,
+   "sol1": 9,
+   "grid": 74.7,
+   "grid_str": 0.378,
+   "peak_date": "1 September",
+   "peak_kind": "rise",
+   "peak_m": 3561,
+   "peak2_date": "12 April",
+   "peak2_m": 3466,
+   "peak2_pc": 97,
+   "grid_txt": "streets run at 75° and 165° from north (grid strength 0.38); the sun sets along them on 27 Feb and 15 Oct"
+  },
+  "Bristol": {
+   "n": 372,
+   "km": 152.3,
+   "sol1": 19,
+   "grid": 48.1,
+   "grid_str": 0.08,
+   "peak_date": "18 April",
+   "peak_kind": "set",
+   "peak_m": 1097,
+   "peak2_date": "26 August",
+   "peak2_m": 1088,
+   "peak2_pc": 99,
+   "grid_txt": "streets run at 48° and 138° from north (grid strength 0.08), just beyond the reach of the sun, which never quite lines up with them"
+  },
+  "Cardiff": {
+   "n": 339,
+   "km": 138.2,
+   "sol1": 11,
+   "grid": 54.4,
+   "grid_str": 0.081,
+   "peak_date": "25 January",
+   "peak_kind": "set",
+   "peak_m": 845,
+   "peak2_date": "16 November",
+   "peak2_m": 830,
+   "peak2_pc": 98,
+   "grid_txt": "streets run at 54° and 144° from north (grid strength 0.08); the sun sets along them on 15 Jan and 28 Nov"
+  },
+  "Belfast": {
+   "n": 418,
+   "km": 182.1,
+   "sol1": 14,
+   "grid": 22.6,
+   "grid_str": 0.142,
+   "peak_date": "21 February",
+   "peak_kind": "rise",
+   "peak_m": 1356,
+   "peak2_date": "21 October",
+   "peak2_m": 1356,
+   "peak2_pc": 100,
+   "grid_txt": "streets run at 23° and 113° from north (grid strength 0.14); the sun sets along them on 24 Apr and 19 Aug"
+  },
+  "Newcastle upon Tyne": {
+   "n": 465,
+   "km": 192.7,
+   "sol1": 8,
+   "grid": 85.8,
+   "grid_str": 0.274,
+   "peak_date": "21 March",
+   "peak_kind": "rise",
+   "peak_m": 1741,
+   "peak2_date": "23 September",
+   "peak2_m": 1684,
+   "peak2_pc": 97,
+   "grid_txt": "streets run at 86° and 176° from north (grid strength 0.27); the sun sets along them on 15 Mar and 29 Sep"
+  },
+  "Sheffield": {
+   "n": 539,
+   "km": 226.5,
+   "sol1": 21,
+   "grid": 61.2,
+   "grid_str": 0.088,
+   "peak_date": "30 March",
+   "peak_kind": "set",
+   "peak_m": 1865,
+   "peak2_date": "14 September",
+   "peak2_m": 1865,
+   "peak2_pc": 100,
+   "grid_txt": "streets run at 61° and 151° from north (grid strength 0.09); the sun sets along them on 3 Feb and 9 Nov"
+  },
+  "Milton Keynes": {
+   "n": 233,
+   "km": 99.1,
+   "sol1": 7,
+   "grid": 59.1,
+   "grid_str": 0.336,
+   "peak_date": "19 January",
+   "peak_kind": "set",
+   "peak_m": 1345,
+   "peak2_date": "24 November",
+   "peak2_m": 1268,
+   "peak2_pc": 94,
+   "grid_txt": "streets run at 59° and 149° from north (grid strength 0.34); the sun sets along them on 27 Jan and 15 Nov"
+  }
+ },
+ "strongest_grids": [
+  {
+   "town": "Great Yarmouth",
+   "grid": 88.6,
+   "grid_str": 0.834,
+   "n": 54,
+   "grid_txt": "streets run at 89° and 179° from north (grid strength 0.83); the sun sets along them on 19 Mar and 25 Sep"
+  },
+  {
+   "town": "Worthing",
+   "grid": 84.7,
+   "grid_str": 0.804,
+   "n": 135,
+   "grid_txt": "streets run at 85° and 175° from north (grid strength 0.80); the sun sets along them on 12 Mar and 2 Oct"
+  },
+  {
+   "town": "Livingston",
+   "grid": 64.3,
+   "grid_str": 0.737,
+   "n": 44,
+   "grid_txt": "streets run at 64° and 154° from north (grid strength 0.74); the sun sets along them on 11 Feb and 31 Oct"
+  },
+  {
+   "town": "Scunthorpe",
+   "grid": 88.0,
+   "grid_str": 0.685,
+   "n": 121,
+   "grid_txt": "streets run at 88° and 178° from north (grid strength 0.68); the sun sets along them on 18 Mar and 26 Sep"
+  },
+  {
+   "town": "Southend-on-Sea",
+   "grid": 2.6,
+   "grid_str": 0.672,
+   "n": 246,
+   "grid_txt": "streets run at 3° and 93° from north (grid strength 0.67); the sun sets along them on 25 Mar and 19 Sep"
+  },
+  {
+   "town": "Hartlepool",
+   "grid": 85.2,
+   "grid_str": 0.653,
+   "n": 135,
+   "grid_txt": "streets run at 85° and 175° from north (grid strength 0.65); the sun sets along them on 14 Mar and 30 Sep"
+  },
+  {
+   "town": "Whitley Bay",
+   "grid": 63.1,
+   "grid_str": 0.647,
+   "n": 45,
+   "grid_txt": "streets run at 63° and 153° from north (grid strength 0.65); the sun sets along them on 8 Feb and 3 Nov"
+  },
+  {
+   "town": "Rayleigh",
+   "grid": 18.0,
+   "grid_str": 0.645,
+   "n": 94,
+   "grid_txt": "streets run at 18° and 108° from north (grid strength 0.64); the sun sets along them on 19 Apr and 24 Aug"
+  }
+ ],
+ "mk": {
+  "grid": 59.1,
+  "grid_str": 0.336,
+  "sol1": 7,
+  "n": 233
+ },
+ "roman": {
+  "n": 105,
+  "km": 54.4,
+  "sol1": 3,
+  "longest": [
+   {
+    "town": "Lincoln",
+    "name": "Ermine Street",
+    "length": 1462
+   },
+   {
+    "town": "Dartford",
+    "name": "Watling Street",
+    "length": 1350
+   },
+   {
+    "town": "Preston",
+    "name": "Watling Street Road",
+    "length": 1120
+   },
+   {
+    "town": "Bolton",
+    "name": "Watling Street",
+    "length": 1010
+   },
+   {
+    "town": "Basingstoke",
+    "name": "Roman Road",
+    "length": 971
+   }
+  ]
+ },
+ "horizon": {
+  "median": 0.43,
+  "over2_pc": 6.4,
+  "max": 13.3,
+  "max_where": "Ballygomartin Road, Belfast"
+ },
+ "solstice_az": {
+  "lat50_ms_set": 309.1,
+  "lat58_ms_set": 320.1,
+  "lat50_mw_set": 232.6,
+  "lat58_mw_set": 222.7
+ },
+ "align": [
+  1.0,
+  2.0
+ ],
+ "mk_check": {
+  "n_pieces": 8,
+  "piece_min": 54.8,
+  "piece_max": 56.4,
+  "pca": 55.2,
+  "true_end": 54.6,
+  "grid_end": 53.7,
+  "convergence": 1.0,
+  "mapped_km": 1.95,
+  "eph_limb": 48.2,
+  "eph_centre": 48.8,
+  "eph_alt_on_axis": 3.6,
+  "eph_min_after_gleam": 35
+ }
+}

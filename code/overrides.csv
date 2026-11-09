@@ -1,0 +1,9 @@
+kind,value,reason
+# Roads that are not streets: kept in the data, flagged road=True, left out of the lists of henge streets.
+# Every solstice-aligned section of 600 m or more was read by name and town (see NOTES.md); these rules cover them.
+pattern,\b(by-?pass|bypass)\b,bypass
+pattern,\bbridge\b,bridge
+pattern,\bpier\b,pier
+pattern,\b(viaduct|flyover|interchange|underpass|tunnel)\b,viaduct or interchange
+pattern,\b(link road|relief road|distributor road|expressway|spur road|slip road)\b,link or relief road
+pattern,^(a|m|b)\d+\b,road number only
